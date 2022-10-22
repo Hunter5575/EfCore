@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Pictures\borderlands-sciamano240-devushka-vzgliad-muzhik-krov.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.10">
       <PrivateAssets>all</PrivateAssets>
@@ -21,6 +25,10 @@
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.2" />
     <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
     <PackageReference Include="XamlAnimatedGif" Version="2.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Pictures\borderlands-sciamano240-devushka-vzgliad-muzhik-krov.jpg" />
   </ItemGroup>
 
 </Project>

@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp3.Database;
 using WpfApp3.Pages;
 
 namespace WpfApp3
@@ -23,9 +24,12 @@ namespace WpfApp3
     /// </summary>
     public partial class MainWindow : Window
     {
+       
         public MainWindow()
         {
+           
             InitializeComponent();
+           
 
             /*MySqlConnectionStringBuilder build = new MySqlConnectionStringBuilder()
             { 

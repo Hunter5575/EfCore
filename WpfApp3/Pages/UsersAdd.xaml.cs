@@ -41,10 +41,10 @@ namespace WpfApp3.Pages
 
         private void BtClickDel(object sender, RoutedEventArgs e)
         {
-            EfModel.Init().Users.Remove(users);
+            /*EfModel.Init().Users.Remove(users);
             EfModel.Init().SaveChanges();
             Mouse.OverrideCursor = null;
-            NavigationService.Navigate(new Page1());
+            NavigationService.Navigate(new Page1());*/
 
         }
     }

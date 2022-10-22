@@ -11,5 +11,6 @@ namespace WpfApp3.Database
         public string Pass { get; set; } = null!;
         public string Post { get; set; } = null!;
         public byte[]? ImagePreview { get; set; }
+        private bool IsPost => (Post=="Admin");
     }
 }
