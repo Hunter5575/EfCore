@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp3.Core;
 using WpfApp3.Database;
 
 namespace WpfApp3.Pages
@@ -26,6 +27,13 @@ namespace WpfApp3.Pages
         {
             this.users = users;
             InitializeComponent();
+            if (AuthClass.user.Post == "Admin")
+            {
+                btDel.Visibility = Visibility.Visible;
+                btSave.Visibility = Visibility.Visible;
+               
+            }
+
             DataContext = users;
         }
 
@@ -41,10 +49,25 @@ namespace WpfApp3.Pages
 
         private void BtClickDel(object sender, RoutedEventArgs e)
         {
-            /*EfModel.Init().Users.Remove(users);
-            EfModel.Init().SaveChanges();
-            Mouse.OverrideCursor = null;
-            NavigationService.Navigate(new Page1());*/
+            if (users.IdUsers == 0)
+            {
+                MessageBox.Show("Пользователь не существует");
+                btDel.IsEnabled = false;
+            }
+            else
+            {
+
+                btDel.IsEnabled = true;
+                if (MessageBox.Show("Вы действительно хотите удалить: " + users.NickName, "Удаление", MessageBoxButton.YesNo)
+                    == MessageBoxResult.Yes)
+                {
+                    Mouse.OverrideCursor = Cursors.Wait;
+                    EfModel.Init().Users.Remove(users);
+                    EfModel.Init().SaveChanges();
+                    Mouse.OverrideCursor = null;
+                    NavigationService.Navigate(new Page1());
+                }
+            }
 
         }
     }

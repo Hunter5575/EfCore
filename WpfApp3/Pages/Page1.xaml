@@ -7,6 +7,11 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Page1">
+    <Page.Background>
+        <ImageBrush ImageSource="/Pictures/9iithyjt_md.jpg"/>
+    </Page.Background>
+
+
 
     <Grid>
         <Grid>
@@ -15,8 +20,8 @@
                 <RowDefinition />
                 <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
-           
-            <UniformGrid Columns="3" Background="CadetBlue">
+            
+            <UniformGrid Columns="3" Background="Transparent" Grid.Row="0">
                 <TextBox Name="tbSearch" Margin="10" TextChanged="tbSearch_TextChanged"/>
                 <ComboBox Name="cbSort" Margin="10"  SelectionChanged="SortPost">
                     <ComboBoxItem Content="По убыванию"/>
@@ -28,7 +33,7 @@
                     <ComboBoxItem Content="Все"/>
                 </ComboBox>
             </UniformGrid>
-            <ListView Name="LvUsers" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="1" >
+            <ListView Name="LvUsers" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="1" Background="Transparent">
                 <!--ListView.Resources>
                     <Style x:Key="TextP" TargetType="Border">
                         <Style.Triggers>
@@ -59,24 +64,24 @@
                                 <RowDefinition />
                                 <RowDefinition />
                             </Grid.RowDefinitions>
-                            <StackPanel >
-                                <ListBox>
-                                    <TextBlock>
+                            <StackPanel Background="#33FFFFFF" >
+                                <ListBox Background="#33FFFFFF">
+                                    <TextBlock >
                                     <Run Text="Имя пользователя" Foreground="Red"/>
                                     <Run Text="{Binding NickName}"/>
                                     <Run Text="Роль" Foreground="Red"/>
                                     <Run Text="{Binding Post}"/>
-                                    <!--Button Content="Выбрать" Click="btUserClick" Margin="10" Width="100" Height="20" HorizontalAlignment="Stretch"/-->
+                                    <Button Content="Выбрать" Click="btUserClick" Margin="10" Width="100" Height="20" HorizontalAlignment="Stretch" />
                                     </TextBlock>
                                     <ListBox.ContextMenu>
                                         <ContextMenu>
                                             <MenuItem Header="Удалить" Click="BtClickDel" Name="btDel"/>
-                                            <MenuItem Header="Выбрать" Click="btUserClick" />
+                                            <MenuItem Header="Выбрать"  />
                                         </ContextMenu>
                                     </ListBox.ContextMenu>
                                 </ListBox>
                             </StackPanel>
-                            
+
                             <!--Image Source="{StaticResource Picture1}" />
                             <TextBlock Grid.Row="0" Text="{Binding NickName}" HorizontalAlignment="Center"/>
                             <Button Grid.Row="2" Content="Выбрать" Click="btUserClick" Width="50" HorizontalAlignment="Center" HorizontalContentAlignment="Center"/-->
@@ -85,7 +90,7 @@
                 </ListView.ItemTemplate>
             </ListView>
             <StackPanel Grid.Row="2">
-                <Button Name="btAdd" Content="Add" Click="btAddClick" Margin="50" HorizontalAlignment="Center" Width="200"/>
+                <Button Name="btAdd" Content="Add" Click="btAddClick" Margin="50" HorizontalAlignment="Center" Width="200" Visibility="Collapsed"/>
             </StackPanel>
         </Grid>
     </Grid>

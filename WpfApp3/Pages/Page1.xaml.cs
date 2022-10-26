@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp3.Core;
 using WpfApp3.Database;
 
 namespace WpfApp3.Pages
@@ -47,11 +48,17 @@ namespace WpfApp3.Pages
 
             LvUsers.ItemsSource = UserList;
         }
-        
+        User users;
         public Page1()
         {
             
             InitializeComponent();
+            if (AuthClass.user.Post == "Admin")
+            {
+                btAdd.Visibility = Visibility.Visible;
+               
+            }
+
             UpdateData();
             
         }
@@ -85,10 +92,11 @@ namespace WpfApp3.Pages
         }
         private void BtClickDel(object sender, RoutedEventArgs e)
         {
-            /*if (LvUsers.SelectedItem != null) ;
+
+            if (LvUsers.SelectedItem != null) ;
             EfModel.Init().Users.Remove(users);
             EfModel.Init().SaveChanges();
-            Mouse.OverrideCursor = null;*/
+            Mouse.OverrideCursor = null;
             
 
         }

@@ -35,8 +35,8 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0"  Name="btSave" Content="Сохранить" Click="BtClickSave"  Height="30" Cursor="Hand"/>
-            <Button Grid.Column="1" Name="btDel" Content="Удалить" Click="BtClickDel"   Height="30" Cursor="Hand"/>
+            <Button Grid.Column="0"  Name="btSave" Content="Сохранить" Click="BtClickSave"  Height="30" Cursor="Hand" Visibility="Collapsed"/>
+            <Button Grid.Column="1" Name="btDel" Content="Удалить" Click="BtClickDel"   Height="30" Cursor="Hand" Visibility="Collapsed"/>
         </Grid>
     </Grid>
 

@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Pictures\9iithyjt_md.jpg" />
     <None Remove="Pictures\borderlands-sciamano240-devushka-vzgliad-muzhik-krov.jpg" />
   </ItemGroup>
 
@@ -28,6 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Pictures\9iithyjt_md.jpg" />
     <Resource Include="Pictures\borderlands-sciamano240-devushka-vzgliad-muzhik-krov.jpg" />
   </ItemGroup>
 
