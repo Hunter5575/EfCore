@@ -93,12 +93,15 @@ namespace WpfApp3.Pages
         private void BtClickDel(object sender, RoutedEventArgs e)
         {
 
-            if (LvUsers.SelectedItem != null) ;
+            if (LvUsers.SelectedItems.Count >1)
+            {
+                return;
+            }
+            User user = LvUsers.SelectedItem as User;
             EfModel.Init().Users.Remove(users);
             EfModel.Init().SaveChanges();
-            Mouse.OverrideCursor = null;
-            
-
         }
+
+        
     }
 }

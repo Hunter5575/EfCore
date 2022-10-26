@@ -22,7 +22,7 @@
             </Grid.RowDefinitions>
             
             <UniformGrid Columns="3" Background="Transparent" Grid.Row="0">
-                <TextBox Name="tbSearch" Margin="10" TextChanged="tbSearch_TextChanged"/>
+                <TextBox Name="tbSearch" Margin="10" TextChanged="tbSearch_TextChanged" FontSize="20"/>
                 <ComboBox Name="cbSort" Margin="10"  SelectionChanged="SortPost">
                     <ComboBoxItem Content="По убыванию"/>
                     <ComboBoxItem Content="По возрастанию"/>
@@ -34,28 +34,16 @@
                 </ComboBox>
             </UniformGrid>
             <ListView Name="LvUsers" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="1" Background="Transparent">
-                <!--ListView.Resources>
-                    <Style x:Key="TextP" TargetType="Border">
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding IsPost}" Value="false">
-                                <Setter Property="Foreground" Value="Blue"/>
-                            </DataTrigger>
-                            <DataTrigger Binding="{Binding IsPost}" Value="True">
-                                <Setter Property="Foreground" Value="Green"/>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </ListView.Resources-->
-                <ListView.ItemContainerStyle>
+                <!--ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
                     </Style>
-                </ListView.ItemContainerStyle>
-                <!--ListView.ItemsPanel>
+                </ListView.ItemContainerStyle-->
+                <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <WrapPanel VerticalAlignment="Top"/>
+                        <WrapPanel HorizontalAlignment="Center"/>
                     </ItemsPanelTemplate>
-                </ListView.ItemsPanel-->
+                </ListView.ItemsPanel>
                 <ListView.ItemTemplate >
                     <DataTemplate>
                         <Grid>
@@ -64,27 +52,32 @@
                                 <RowDefinition />
                                 <RowDefinition />
                             </Grid.RowDefinitions>
-                            <StackPanel Background="#33FFFFFF" >
-                                <ListBox Background="#33FFFFFF">
-                                    <TextBlock >
-                                    <Run Text="Имя пользователя" Foreground="Red"/>
-                                    <Run Text="{Binding NickName}"/>
-                                    <Run Text="Роль" Foreground="Red"/>
-                                    <Run Text="{Binding Post}"/>
-                                    <Button Content="Выбрать" Click="btUserClick" Margin="10" Width="100" Height="20" HorizontalAlignment="Stretch" />
-                                    </TextBlock>
-                                    <ListBox.ContextMenu>
-                                        <ContextMenu>
-                                            <MenuItem Header="Удалить" Click="BtClickDel" Name="btDel"/>
-                                            <MenuItem Header="Выбрать"  />
-                                        </ContextMenu>
-                                    </ListBox.ContextMenu>
-                                </ListBox>
-                            </StackPanel>
+                            
+                           
+                            <Image Source="{StaticResource Picture1}" />
+                           
+                            
+                            <Border BorderBrush="Black" BorderThickness="1" Padding="10" >
+                                <Grid Height="200" Width="200" Background="#33ffffff">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition Height="30"/>
+                                    </Grid.RowDefinitions>
+                                    <ListBox Background="#33FFFFFF" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Left">
+                                        <TextBlock >
+                                        <Run Text="Имя пользователя" Foreground="Red"/>
+                                        <Run Text="{Binding NickName}"/>
+                                        </TextBlock>
+                                        <TextBlock>
+                                        <Run Text="Роль" Foreground="Red"/>
+                                        <Run Text="{Binding Post}"/>
+                                        </TextBlock>
+                                    </ListBox>
+                                    <Button Grid.Row="2" Content="Выбрать" Click="btUserClick" Cursor="Hand"/>
+                                </Grid>
+                            </Border>
 
-                            <!--Image Source="{StaticResource Picture1}" />
-                            <TextBlock Grid.Row="0" Text="{Binding NickName}" HorizontalAlignment="Center"/>
-                            <Button Grid.Row="2" Content="Выбрать" Click="btUserClick" Width="50" HorizontalAlignment="Center" HorizontalContentAlignment="Center"/-->
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
