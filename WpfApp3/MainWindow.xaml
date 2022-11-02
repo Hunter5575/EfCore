@@ -17,12 +17,28 @@
             </StackPanel>
             <Grid Grid.Row="1" Grid.ColumnSpan="2">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="200"/>
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
                 <StackPanel>
-                    <Button Name="btPage1" Content="Page 1" Click="btPage1Click" Margin="15" />
-                    <Button Name="btPage2" Content="Page 2" Click="btPage2Click" Margin="15" />
+                    <Button Name="btPage1" Content="LvList" Click="btPage1Click" Margin="15">
+                        <Button.ToolTip>
+                            <ToolTip Background="Bisque" Foreground="Black">
+                                <StackPanel>
+                                    <TextBlock>Открывает ListView</TextBlock>
+                                </StackPanel>
+                            </ToolTip>
+                        </Button.ToolTip>
+                    </Button>
+                    <Button Name="btPage2" Content="DGVList" Click="btPage2Click" Margin="15">
+                        <Button.ToolTip>
+                            <ToolTip Background="Bisque" Foreground="Black">
+                                <StackPanel>
+                                    <TextBlock>Открывает DataGridView</TextBlock>
+                                </StackPanel>
+                            </ToolTip>
+                        </Button.ToolTip>
+                    </Button>
                 </StackPanel>
                 <Frame Grid.Column="1" Name="FrNav" NavigationUIVisibility="Hidden"/>
             </Grid>
