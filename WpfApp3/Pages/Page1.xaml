@@ -53,26 +53,32 @@
                                 <RowDefinition />
                                 <RowDefinition />
                             </Grid.RowDefinitions>
-                            <Image Source="{StaticResource Picture1}" />
-                            <Border BorderBrush="Black" BorderThickness="1" Padding="10" >
-                                <Button  Cursor="Hand" MouseDoubleClick="btUserClick" Background="#33FFFFFF">
-                                <Grid Height="500" Width="500" Background="#33ffffff"  >
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition/>
-                                        <RowDefinition Height="10"/>
-                                        <RowDefinition Height="10"/>
-                                    </Grid.RowDefinitions>
-                                        <Image gif:ImageBehavior.AnimatedSource="{Binding ImagePreview, TargetNullValue={StaticResource Picture1 }}" Grid.Row="0"/>
-                                        <ListBox Background="#33FFFFFF" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Left">
-                                            <TextBlock Grid.Row="1">
-                                        <Run Text="Имя пользователя" Foreground="Red" />
-                                        <Run Text="{Binding NickName}"/>
-                                            </TextBlock>
-                                            <TextBlock Grid.Row="2">
-                                        <Run Text="Роль" Foreground="Red"/>
-                                        <Run Text="{Binding Post}"/>
-                                            </TextBlock>
-                                        </ListBox>
+                            <!--Image Source="{StaticResource Picture1}" /-->
+                            <Border BorderBrush="Black" BorderThickness="1" Padding="10"  >
+                                <Button Cursor="Hand" MouseDoubleClick="btUserClick" Background="#33FFFFFF" Height="200" Width="200" >
+                                    <Button.ToolTip>
+                                        <ToolTip Background="White" Foreground="Black">
+                                            <StackPanel>
+                                                <TextBlock>Нажмите дважды, чтобы открыть</TextBlock>
+                                            </StackPanel>
+                                        </ToolTip>
+                                    </Button.ToolTip>
+                                <Grid Background="#33ffffff" Height="200" Width="200" >
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="20"/>
+                                            <RowDefinition Height="20"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <!--ListBox Background="#33FFFFFF" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Left"/-->
+                                        <TextBlock Grid.Row="0" >
+                                            <Run Text="Имя пользователя" Foreground="Red"/>
+                                            <Run Text="{Binding NickName}"/>
+                                        </TextBlock>
+                                        <TextBlock Grid.Row="1">
+                                            <Run Text="Роль" Foreground="Red"/>
+                                            <Run Text="{Binding Post}"/>
+                                        </TextBlock>
+                                        <Image gif:ImageBehavior.AnimatedSource="{Binding ImagePreview, TargetNullValue={StaticResource Picture1 }}" Grid.Row="2" Height="200" Width="200"/>
                                     </Grid>
                                 </Button>
                             </Border>

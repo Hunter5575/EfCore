@@ -23,10 +23,10 @@ namespace WpfApp3.Pages
     public partial class Page1 : Page
     {
         private void UpdateData() {
-            /*if (LvUsers == null)
-                return;*/
-            LvUsers.ItemsSource = EfModel.Init().Users.Where(u=>u.NickName.Contains(tbSearch.Text)).ToList();
-            /*if (cbSort.SelectedIndex == 0)
+            if (LvUsers == null)
+                return;
+            IEnumerable<User> UserList = EfModel.Init().Users.Where(u=>u.NickName.Contains(tbSearch.Text)).ToList();
+            if (cbSort.SelectedIndex == 0)
             {
                 UserList = UserList.OrderByDescending(p => p.NickName);
             }
@@ -46,7 +46,7 @@ namespace WpfApp3.Pages
             }
 
 
-            LvUsers.ItemsSource = UserList;*/
+            LvUsers.ItemsSource = UserList;
         }
        
         public Page1()

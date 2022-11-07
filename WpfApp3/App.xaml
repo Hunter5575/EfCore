@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:WpfApp3"
              StartupUri="AuthWindow.xaml">
     <Application.Resources>
-        <BitmapImage x:Key="Picture1" UriSource="/Pages/9iithyjt_md.jpg"/>
+        <BitmapImage x:Key="Picture1" UriSource="/Pictures/9iithyjt_md.jpg"/>
        
        
 
