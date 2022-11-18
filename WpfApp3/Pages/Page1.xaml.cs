@@ -66,8 +66,11 @@ namespace WpfApp3.Pages
 
         private void btUserClick(object sender, RoutedEventArgs e)
         {
+            
             User users = (sender as Button).DataContext as User;
+            UsersAdd usersAdd = new UsersAdd(users);
             NavigationService.Navigate(new UsersAdd(users));
+            
 
         }
 
@@ -93,8 +96,7 @@ namespace WpfApp3.Pages
         }
         private void BtClickDel(object sender, RoutedEventArgs e)
         {
-            
-;            if (LvUsers.SelectedItems.Count >0)
+            if (LvUsers.SelectedItems.Count >0)
             {
                User users = LvUsers.SelectedItems[0] as User;
                 if (MessageBox.Show("Вы удаляете пользователя: " + users.NickName + "?", "Удалить пользователь", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
@@ -104,6 +106,11 @@ namespace WpfApp3.Pages
                 }
                 UpdateData();
             }
+        }
+
+        private void BtClickEdit(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +31,7 @@ namespace WpfApp3.Pages
             InitializeComponent();
             if (AuthClass.user.Post == "Admin")
             {
-                btDel.Visibility = Visibility.Visible;
+                btEdit.Visibility = Visibility.Visible;
                 btSave.Visibility = Visibility.Visible;
                
             }
@@ -42,33 +44,57 @@ namespace WpfApp3.Pages
             if (users.IdUsers == 0)
                 EfModel.Init().Users.Add(users);
             EfModel.Init().SaveChanges();
+            tbLoginU.IsEnabled = false;
+            tbNikcName.IsEnabled = false;
+            tbPassU.IsEnabled = false;
+            tbPostU.IsEnabled = false;
             
-            NavigationService.Navigate(new Page1());
 
         }
 
-        private void BtClickDel(object sender, RoutedEventArgs e)
+        private void BtClickEdit(object sender, RoutedEventArgs e)
         {
-            if (users.IdUsers == 0)
-            {
-                MessageBox.Show("Пользователь не существует");
-                btDel.IsEnabled = false;
-            }
-            else
-            {
-
-                btDel.IsEnabled = true;
-                if (MessageBox.Show("Вы действительно хотите удалить: " + users.NickName, "Удаление", MessageBoxButton.YesNo)
-                    == MessageBoxResult.Yes)
-                {
-                    Mouse.OverrideCursor = Cursors.Wait;
-                    EfModel.Init().Users.Remove(users);
-                    EfModel.Init().SaveChanges();
-                    Mouse.OverrideCursor = null;
-                    NavigationService.Navigate(new Page1());
-                }
-            }
-
+            tbLoginU.IsEnabled = true;
+            tbNikcName.IsEnabled = true;
+            tbPassU.IsEnabled = true;
+            tbPostU.IsEnabled = true;
         }
+
+        private void BtClickBack(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Page1());
+        }
+        private void ImageClick(object sender, MouseButtonEventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog { Filter = "*Jpeg images|*.jpg|All files|*.*" };
+            if (openFile.ShowDialog() == true)
+            {
+                users.ImagePreview = File.ReadAllBytes(openFile.FileName);
+            }
+        }
+
+        /* private void BtClickDel(object sender, RoutedEventArgs e)
+         {
+             if (users.IdUsers == 0)
+             {
+                 MessageBox.Show("Пользователь не существует");
+                 btDel.IsEnabled = false;
+             }
+             else
+             {
+
+                 btDel.IsEnabled = true;
+                 if (MessageBox.Show("Вы действительно хотите удалить: " + users.NickName, "Удаление", MessageBoxButton.YesNo)
+                     == MessageBoxResult.Yes)
+                 {
+                     Mouse.OverrideCursor = Cursors.Wait;
+                     EfModel.Init().Users.Remove(users);
+                     EfModel.Init().SaveChanges();
+                     Mouse.OverrideCursor = null;
+                     NavigationService.Navigate(new Page1());
+                 }
+             }
+
+         }*/
     }
 }

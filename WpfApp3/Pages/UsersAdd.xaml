@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:gif="http://wpfanimatedgif.codeplex.com"
       xmlns:local="clr-namespace:WpfApp3.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
@@ -10,25 +11,34 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="50"/>
             <RowDefinition />
             <RowDefinition Height="auto"/>
 
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
-            
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="btBack" Click="BtClickBack" HorizontalAlignment="Center" Height="50" Width="70" VerticalAlignment="Bottom"  Content="Назад" FontSize="20"/>
+                <TextBlock Foreground="Black" Text="Пользователи" HorizontalAlignment="Center" FontSize="30" Grid.Column="1" Width="259"/>
+            </Grid>
         </StackPanel>
-        <TextBlock Grid.Row="0" Foreground="Black" Text="Пользователи" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+
+
+
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Width="500" Grid.Row="1">
-            
+            <Image gif:ImageBehavior.AnimatedSource="{Binding ImagePreview, TargetNullValue={StaticResource Picture1 }}" Height="200" MouseDown="ImageClick"  Name="Image" Cursor="Hand"/>
             <TextBlock Text="Имя пользователя"/>
-            <TextBox Text="{Binding NickName}" Name="tbNikcName" />
+            <TextBox Text="{Binding NickName}" Name="tbNikcName" IsEnabled="False"/>
             <TextBlock Text="Логин"/>
-            <TextBox Text="{Binding Login}"  Name="tbLoginU"/>
+            <TextBox Text="{Binding Login}"  Name="tbLoginU" IsEnabled="False"/>
             <TextBlock Text="Пароль"/>
-            <TextBox Text="{Binding Pass}"  Name="tbPassU"/>
+            <TextBox Text="{Binding Pass}"  Name="tbPassU" IsEnabled="False"/>
             <TextBlock Text="Роль"/>
-            <TextBox Text="{Binding Post}" Name="tbPostU"/>
+            <TextBox Text="{Binding Post}" Name="tbPostU" IsEnabled="False"/>
         </StackPanel>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
@@ -36,7 +46,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0"  Name="btSave" Content="Сохранить" Click="BtClickSave"  Height="30" Cursor="Hand" Visibility="Collapsed"/>
-            <Button Grid.Column="1" Name="btDel" Content="Удалить" Click="BtClickDel"   Height="30" Cursor="Hand" Visibility="Collapsed"/>
+            <Button Grid.Column="1" Name="btEdit" Content="Удалить" Click="BtClickEdit"   Height="30" Cursor="Hand" Visibility="Collapsed"/>
         </Grid>
     </Grid>
 
