@@ -34,15 +34,15 @@
                     <ComboBoxItem Content="Все"/>
                 </ComboBox>
             </UniformGrid>
-            <ListView Name="LvUsers" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="1" Background="Transparent">
+            <ListView Name="LvUsers" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="1" Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
                 <!--ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
                     </Style>
                 </ListView.ItemContainerStyle-->
                 <ListView.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel HorizontalAlignment="Center"/>
+                    <ItemsPanelTemplate >
+                        <WrapPanel HorizontalAlignment="Center" />
                     </ItemsPanelTemplate>
                 </ListView.ItemsPanel>
                 <ListView.ItemTemplate >
@@ -54,8 +54,8 @@
                                 <RowDefinition />
                             </Grid.RowDefinitions>
                             <!--Image Source="{StaticResource Picture1}" /-->
-                            <Border BorderBrush="Black" BorderThickness="1" Padding="10"  >
-                                <Button Cursor="Hand" MouseDoubleClick="btUserClick" Background="#33FFFFFF" Height="200" Width="200" >
+                            <Border BorderBrush="Black" BorderThickness="0" Padding="0"  >
+                                <Button Cursor="Hand" MouseDoubleClick="btUserClick" Background="#33FFFFFF" Height="200" Width="200" BorderBrush="Black" BorderThickness="1">
                                     <Button.ToolTip>
                                         <ToolTip Background="White" Foreground="Black">
                                             <StackPanel>
@@ -63,12 +63,17 @@
                                             </StackPanel>
                                         </ToolTip>
                                     </Button.ToolTip>
-                                <Grid Background="#33ffffff" Height="200" Width="200" >
+                                <Grid Background="#33ffffff" Height="200" Width="200">
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="20"/>
-                                            <RowDefinition Height="20"/>
+                                            <RowDefinition Height="15"/>
                                             <RowDefinition Height="*"/>
                                         </Grid.RowDefinitions>
+                                        <Grid.ContextMenu>
+                                            <ContextMenu>
+                                                <MenuItem Header="Удалить" Click="BtClickDel" Name="btDel"/>
+                                            </ContextMenu>
+                                        </Grid.ContextMenu>
                                         <!--ListBox Background="#33FFFFFF" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Left"/-->
                                         <TextBlock Grid.Row="0" >
                                             <Run Text="Имя пользователя" Foreground="Red"/>
@@ -87,7 +92,7 @@
                 </ListView.ItemTemplate>
             </ListView>
             <StackPanel Grid.Row="2">
-                <Button Name="btAdd" Content="Add" Click="btAddClick" Margin="50" HorizontalAlignment="Center" Width="200" Visibility="Collapsed"/>
+                <Button Name="btAdd" Content="Добавить" Click="btAddClick" Margin="50" HorizontalAlignment="Center" Width="200" Visibility="Collapsed"/>
             </StackPanel>
         </Grid>
     </Grid>

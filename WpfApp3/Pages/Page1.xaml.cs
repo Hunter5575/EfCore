@@ -60,6 +60,7 @@ namespace WpfApp3.Pages
             }
 
             UpdateData();
+           
             
         }
 
@@ -90,18 +91,19 @@ namespace WpfApp3.Pages
         {
             UpdateData();
         }
-       /* private void BtClickDel(object sender, RoutedEventArgs e)
+        private void BtClickDel(object sender, RoutedEventArgs e)
         {
-
-            if (LvUsers.SelectedItems.Count >1)
+            
+;            if (LvUsers.SelectedItems.Count >0)
             {
-                return;
+               User users = LvUsers.SelectedItems[0] as User;
+                if (MessageBox.Show("Вы удаляете пользователя: " + users.NickName + "?", "Удалить пользователь", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    EfModel.Init().Users.Remove(users);
+                    EfModel.Init().SaveChanges();
+                }
+                UpdateData();
             }
-            User user = LvUsers.SelectedItem as User;
-            EfModel.Init().Users.Remove(users);
-            EfModel.Init().SaveChanges();
-        }*/
-
-        
+        }
     }
 }
