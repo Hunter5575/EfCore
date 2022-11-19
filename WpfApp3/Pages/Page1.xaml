@@ -19,7 +19,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
                 <RowDefinition />
-                <RowDefinition Height="100"/>
+                <RowDefinition Height="101"/>
             </Grid.RowDefinitions>
             
             <UniformGrid Columns="3" Background="Transparent" Grid.Row="0">
