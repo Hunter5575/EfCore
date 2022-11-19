@@ -35,29 +35,66 @@ namespace WpfApp3.Pages
                 btSave.Visibility = Visibility.Visible;
                
             }
-
+            btSave.Visibility=Visibility.Collapsed;
+            tbNikcName.Background = new SolidColorBrush(Colors.WhiteSmoke);
+            tbLoginU.Background = new SolidColorBrush(Colors.WhiteSmoke);
+            tbPassU.Background = new SolidColorBrush(Colors.WhiteSmoke);
+            tbPostU.Background = new SolidColorBrush(Colors.WhiteSmoke);
+            tbNikcName.Foreground = new SolidColorBrush(Colors.Red);
+            tbLoginU.Foreground = new SolidColorBrush(Colors.Red);
+            tbPassU.Foreground = new SolidColorBrush(Colors.Red);
+            tbPostU.Foreground = new SolidColorBrush(Colors.Red);
+            
+           
             DataContext = users;
         }
 
         private void BtClickSave(object sender, RoutedEventArgs e)
         {
+            MainWindow mainWindow = new MainWindow();
             if (users.IdUsers == 0)
                 EfModel.Init().Users.Add(users);
             EfModel.Init().SaveChanges();
+            btSave.Visibility = Visibility.Collapsed;
+            btEdit.Visibility = Visibility.Visible;
             tbLoginU.IsEnabled = false;
             tbNikcName.IsEnabled = false;
             tbPassU.IsEnabled = false;
             tbPostU.IsEnabled = false;
-            
-
+            Image.IsEnabled=false;
+            tbNikcName.Background = new SolidColorBrush(Colors.WhiteSmoke);
+            tbLoginU.Background = new SolidColorBrush(Colors.WhiteSmoke);
+            tbPassU.Background = new SolidColorBrush(Colors.WhiteSmoke);
+            tbPostU.Background = new SolidColorBrush(Colors.WhiteSmoke);
+            tbNikcName.Foreground = new SolidColorBrush(Colors.Red);
+            tbLoginU.Foreground = new SolidColorBrush(Colors.Red);
+            tbPassU.Foreground = new SolidColorBrush(Colors.Red);
+            tbPostU.Foreground = new SolidColorBrush(Colors.Red);
+            mainWindow.btPage1.Visibility = Visibility.Visible;
+            mainWindow.btPage2.Visibility = Visibility.Visible;
         }
 
         private void BtClickEdit(object sender, RoutedEventArgs e)
         {
+            MainWindow mainWindow = new MainWindow();
+            btEdit.Visibility=Visibility.Collapsed;
+            btSave.Visibility=Visibility.Visible;
+            btBack.Visibility=Visibility.Collapsed;
             tbLoginU.IsEnabled = true;
             tbNikcName.IsEnabled = true;
             tbPassU.IsEnabled = true;
             tbPostU.IsEnabled = true;
+            Image.IsEnabled=true;
+            tbNikcName.Background = new SolidColorBrush(Colors.White);
+            tbLoginU.Background = new SolidColorBrush(Colors.White);
+            tbPassU.Background = new SolidColorBrush(Colors.White);
+            tbPostU.Background = new SolidColorBrush(Colors.White);
+            tbNikcName.Foreground = new SolidColorBrush(Colors.Black);
+            tbLoginU.Foreground = new SolidColorBrush(Colors.Black);
+            tbPassU.Foreground = new SolidColorBrush(Colors.Black);
+            tbPostU.Foreground = new SolidColorBrush(Colors.Black);
+            mainWindow.btPage1.Visibility = Visibility.Collapsed;
+            mainWindow.btPage2.Visibility = Visibility.Collapsed;
         }
 
         private void BtClickBack(object sender, RoutedEventArgs e)

@@ -29,8 +29,9 @@ namespace WpfApp3
         {
            
             InitializeComponent();
-           
 
+            
+            
             /*MySqlConnectionStringBuilder build = new MySqlConnectionStringBuilder()
             { 
                 Server = "cfif31.ru",
@@ -42,8 +43,9 @@ namespace WpfApp3
             };
             Trace.WriteLine(build.ConnectionString);
             Server=cfif31.ru;Port=3306;User ID=ISPr22-43_NekrasovAI;Password=ISPr22-43_NekrasovAI;Character Set=utf8;Database=ISPr22-43_NekrasovAI_02*/
+            
         }
-
+        
         private void btPage1Click(object sender, RoutedEventArgs e)
         {
             FrNav.Navigate(new Page1());
