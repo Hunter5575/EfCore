@@ -55,7 +55,7 @@
                             </Grid.RowDefinitions>
                             <!--Image Source="{StaticResource Picture1}" /-->
                             <Border BorderBrush="Black" BorderThickness="0" Padding="0"  >
-                                <Button Cursor="Hand" MouseDoubleClick="btUserClick" Background="#33FFFFFF" Height="200" Width="200" BorderBrush="Black" BorderThickness="1">
+                                <Button Cursor="Hand" MouseDoubleClick="btUserClick" Background="#33FFFFFF" Height="200" Width="200"  BorderBrush="Black" BorderThickness="1">
                                     <Button.ToolTip>
                                         <ToolTip Background="White" Foreground="Black">
                                             <StackPanel>
@@ -63,7 +63,7 @@
                                             </StackPanel>
                                         </ToolTip>
                                     </Button.ToolTip>
-                                <Grid Background="#33ffffff" Height="200" Width="200">
+                                <Grid Background="#33ffffff" >
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="20"/>
                                             <RowDefinition Height="15"/>
@@ -93,7 +93,8 @@
                 </ListView.ItemTemplate>
             </ListView>
             <StackPanel Grid.Row="2">
-                <Button Name="btAdd" Content="Добавить" Click="btAddClick" Margin="50" HorizontalAlignment="Center" Width="200" Visibility="Collapsed"/>
+                <Button Name="btAdd" Content="Добавить" Click="btAddClick" Margin="10" HorizontalAlignment="Center" Width="200" Visibility="Visible"/>
+                <Button Name="btBack" Content="Назад" Click="btBackClick" Margin="10" HorizontalAlignment="Center" Width="200" />
             </StackPanel>
         </Grid>
     </Grid>

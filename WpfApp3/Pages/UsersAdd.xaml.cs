@@ -29,6 +29,7 @@ namespace WpfApp3.Pages
         {
             this.users = users;
             InitializeComponent();
+            
             if (AuthClass.user.Post == "Admin")
             {
                 btEdit.Visibility = Visibility.Visible;

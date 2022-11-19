@@ -40,7 +40,7 @@
                         </Button.ToolTip>
                     </Button>
                 </StackPanel>
-                <Frame Grid.Column="1" Name="FrNav" NavigationUIVisibility="Hidden"/>
+                <Frame Grid.Column="1" Name="FrNav" NavigationUIVisibility="Hidden" />
             </Grid>
             </Grid>
         </Grid>

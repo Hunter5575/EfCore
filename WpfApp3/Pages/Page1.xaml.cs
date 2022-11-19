@@ -66,11 +66,14 @@ namespace WpfApp3.Pages
 
         private void btUserClick(object sender, RoutedEventArgs e)
         {
+            MainWindow mainWindow = new MainWindow();
             
             User users = (sender as Button).DataContext as User;
             UsersAdd usersAdd = new UsersAdd(users);
             NavigationService.Navigate(new UsersAdd(users));
-            
+            Grid.SetColumnSpan(mainWindow, 2);
+
+
 
         }
 
@@ -111,6 +114,11 @@ namespace WpfApp3.Pages
         private void BtClickEdit(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void btBackClick(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

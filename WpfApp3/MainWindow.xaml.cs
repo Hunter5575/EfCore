@@ -29,8 +29,8 @@ namespace WpfApp3
         {
            
             InitializeComponent();
-
-            
+            whitepage whitepage = new whitepage();
+            Page1 page1= new Page1();
             
             /*MySqlConnectionStringBuilder build = new MySqlConnectionStringBuilder()
             { 
@@ -55,5 +55,6 @@ namespace WpfApp3
         {
             FrNav.Navigate(new Page2());
         }
+       
     }
 }

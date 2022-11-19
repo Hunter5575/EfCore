@@ -48,6 +48,7 @@
             <Button Grid.Column="0"  Name="btSave" Content="Сохранить" Click="BtClickSave"  Height="30" Cursor="Hand" Visibility="Collapsed"/>
             <Button Grid.Column="1" Name="btEdit" Content="Редактировать" Click="BtClickEdit"   Height="30" Cursor="Hand" Visibility="Collapsed"/>
         </Grid>
+        <Frame Grid.ColumnSpan="2" Name="FrNav" NavigationUIVisibility="Hidden" />
     </Grid>
 
 </Page>
