@@ -36,10 +36,10 @@ namespace WpfApp3.Pages
                
             }
             btSave.Visibility=Visibility.Collapsed;
-            tbNikcName.Background = new SolidColorBrush(Colors.WhiteSmoke);
-            tbLoginU.Background = new SolidColorBrush(Colors.WhiteSmoke);
-            tbPassU.Background = new SolidColorBrush(Colors.WhiteSmoke);
-            tbPostU.Background = new SolidColorBrush(Colors.WhiteSmoke);
+            tbNikcName.Background = new SolidColorBrush(Colors.Black);
+            tbLoginU.Background = new SolidColorBrush(Colors.Black);
+            tbPassU.Background = new SolidColorBrush(Colors.Black);
+            tbPostU.Background = new SolidColorBrush(Colors.Black);
             tbNikcName.Foreground = new SolidColorBrush(Colors.Red);
             tbLoginU.Foreground = new SolidColorBrush(Colors.Red);
             tbPassU.Foreground = new SolidColorBrush(Colors.Red);
@@ -57,15 +57,16 @@ namespace WpfApp3.Pages
             EfModel.Init().SaveChanges();
             btSave.Visibility = Visibility.Collapsed;
             btEdit.Visibility = Visibility.Visible;
+            btBack.Visibility = Visibility.Visible;
             tbLoginU.IsEnabled = false;
             tbNikcName.IsEnabled = false;
             tbPassU.IsEnabled = false;
             tbPostU.IsEnabled = false;
             Image.IsEnabled=false;
-            tbNikcName.Background = new SolidColorBrush(Colors.WhiteSmoke);
-            tbLoginU.Background = new SolidColorBrush(Colors.WhiteSmoke);
-            tbPassU.Background = new SolidColorBrush(Colors.WhiteSmoke);
-            tbPostU.Background = new SolidColorBrush(Colors.WhiteSmoke);
+            tbNikcName.Background = new SolidColorBrush(Colors.Black);
+            tbLoginU.Background = new SolidColorBrush(Colors.Black);
+            tbPassU.Background = new SolidColorBrush(Colors.Black);
+            tbPostU.Background = new SolidColorBrush(Colors.Black);
             tbNikcName.Foreground = new SolidColorBrush(Colors.Red);
             tbLoginU.Foreground = new SolidColorBrush(Colors.Red);
             tbPassU.Foreground = new SolidColorBrush(Colors.Red);
