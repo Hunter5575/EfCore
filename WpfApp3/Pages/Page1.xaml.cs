@@ -101,7 +101,7 @@ namespace WpfApp3.Pages
         {
             if (LvUsers.SelectedItems.Count >0)
             {
-               User users = LvUsers.SelectedItems[0] as User;
+                User users = LvUsers.SelectedItems[0] as User; 
                 if (MessageBox.Show("Вы удаляете пользователя: " + users.NickName + "?", "Удалить пользователь", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
                     EfModel.Init().Users.Remove(users);
@@ -119,6 +119,12 @@ namespace WpfApp3.Pages
         private void btBackClick(object sender, RoutedEventArgs e)
         {
             
+        }
+
+        private void ddd(object sender, MouseButtonEventArgs e)
+        {
+            Console.WriteLine("joeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeehr");
+
         }
     }
 }

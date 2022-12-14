@@ -46,8 +46,8 @@
                     </ItemsPanelTemplate>
                 </ListView.ItemsPanel>
                 <ListView.ItemTemplate >
-                    <DataTemplate>
-                        <Grid>
+                    <DataTemplate >
+                        <Grid >
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
                                 <RowDefinition />

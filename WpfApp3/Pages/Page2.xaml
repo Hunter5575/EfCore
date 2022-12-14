@@ -21,17 +21,31 @@
                 <ComboBox Name="cb2" Margin="10"/>
             </UniformGrid>
             <DataGrid Name="dgvUsers" AutoGenerateColumns="False" Grid.Row="1">
-
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Имя пользователя" Width="*" Binding="{Binding NickName}"/>
-                    <DataGridTextColumn Header="Логин" Width="*" Binding="{Binding Login}"/>
-                    <DataGridTextColumn Header="Пароль" Width="*" Binding="{Binding Pass}"/>
-                    <DataGridTextColumn Header="Роль" Width="*" Binding="{Binding Post}"/>
-                </DataGrid.Columns>
+                <!--Border BorderBrush="Black" BorderThickness="0" Padding="0"  >
+                    <Button Cursor="Hand" MouseDoubleClick="btUserClick" Background="#33FFFFFF" Height="200" Width="200"  BorderBrush="Black" BorderThickness="1">
+                        <Button.ToolTip>
+                            <ToolTip Background="White" Foreground="Black">
+                                <StackPanel>
+                                    <TextBlock>Нажмите дважды, чтобы открыть</TextBlock>
+                                </StackPanel>
+                            </ToolTip>
+                        </Button.ToolTip-->
+                     
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Имя пользователя" Width="*" Binding="{Binding NickName}"/>
+                                <DataGridTextColumn Header="Логин" Width="*" Binding="{Binding Login}"/>
+                                <DataGridTextColumn Header="Пароль" Width="*" Binding="{Binding Pass}"/>
+                                <DataGridTextColumn Header="Роль" Width="*" Binding="{Binding Post}"/>
+                            </DataGrid.Columns>
+                        
+                    <!--/Button>
+                </Border-->
             </DataGrid>
             <StackPanel Grid.Row="2">
                 <Button Name="btAdd" Content="Add" Click="btAddClick" Margin="50" HorizontalAlignment="Center" Width="200"/>
             </StackPanel>
+                    
+   
         </Grid>
     </Grid>
 </Page>
