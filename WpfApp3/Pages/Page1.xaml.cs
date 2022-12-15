@@ -121,10 +121,6 @@ namespace WpfApp3.Pages
             
         }
 
-        private void ddd(object sender, MouseButtonEventArgs e)
-        {
-            Console.WriteLine("joeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeehr");
-
-        }
+      
     }
 }
