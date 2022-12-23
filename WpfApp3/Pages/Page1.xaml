@@ -7,7 +7,6 @@
       xmlns:local="clr-namespace:WpfApp3.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      IsVisibleChanged="addVisChan"
       Title="Page1">
     <Page.Background>
         <ImageBrush ImageSource="/Pictures/9iithyjt_md.jpg"/>

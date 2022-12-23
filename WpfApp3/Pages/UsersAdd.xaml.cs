@@ -101,7 +101,7 @@ namespace WpfApp3.Pages
 
         private void BtClickBack(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new Page1());
         }
         private void ImageClick(object sender, MouseButtonEventArgs e)
         {

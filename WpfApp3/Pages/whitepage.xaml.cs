@@ -16,19 +16,13 @@ using System.Windows.Shapes;
 namespace WpfApp3.Pages
 {
     /// <summary>
-    /// Interaction logic for Page2.xaml
+    /// Interaction logic for whitepage.xaml
     /// </summary>
-    public partial class Page2 : Page
+    public partial class whitepage : Page
     {
-        public Page2()
+        public whitepage()
         {
             InitializeComponent();
-            dgvUsers.ItemsSource = EfModel.Init().Users.ToList();
-        }
-
-        private void btAddClick(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
