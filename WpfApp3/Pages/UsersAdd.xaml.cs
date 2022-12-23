@@ -52,7 +52,7 @@ namespace WpfApp3.Pages
 
         private void BtClickSave(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
+            
             if (users.IdUsers == 0)
                 EfModel.Init().Users.Add(users);
             EfModel.Init().SaveChanges();
@@ -72,8 +72,7 @@ namespace WpfApp3.Pages
             tbLoginU.Foreground = new SolidColorBrush(Colors.Red);
             tbPassU.Foreground = new SolidColorBrush(Colors.Red);
             tbPostU.Foreground = new SolidColorBrush(Colors.Red);
-            mainWindow.btPage1.Visibility = Visibility.Visible;
-            mainWindow.btPage2.Visibility = Visibility.Visible;
+           
         }
 
         private void BtClickEdit(object sender, RoutedEventArgs e)
