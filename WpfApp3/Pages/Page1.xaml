@@ -6,6 +6,7 @@
       xmlns:gif="http://wpfanimatedgif.codeplex.com"
       xmlns:local="clr-namespace:WpfApp3.Pages"
       mc:Ignorable="d" 
+       IsVisibleChanged="addVisChan"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Page1">
     <Page.Background>

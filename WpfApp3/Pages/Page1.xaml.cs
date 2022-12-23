@@ -121,6 +121,9 @@ namespace WpfApp3.Pages
             
         }
 
-      
+        private void addVisChan(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            UpdateData();
+        }
     }
 }

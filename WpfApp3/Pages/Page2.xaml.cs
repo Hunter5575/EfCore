@@ -51,21 +51,30 @@ namespace WpfApp3.Pages
         public Page2()
         {
             InitializeComponent();
-            dgvUsers.ItemsSource = EfModel.Init().Users.ToList();
+         UpdateData();
         }
 
         private void btAddClick(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new UsersAdd(new User()));
         }
-        private void btUserClick(object sender, RoutedEventArgs e)
+        
+        private void BtClickDel(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-
-            User users = (sender as Button).DataContext as User;
-            UsersAdd usersAdd = new UsersAdd(users);
-            NavigationService.Navigate(new UsersAdd(users));
-            Grid.SetColumnSpan(mainWindow, 2);
+            if (dgvUsers.SelectedItems.Count > 0)
+            {
+                User users = dgvUsers.SelectedItems[0] as User;
+                if (MessageBox.Show("Вы удаляете пользователя: " + users.NickName + "?", "Удалить пользователь", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    EfModel.Init().Users.Remove(users);
+                    EfModel.Init().SaveChanges();
+                }
+                UpdateData();
+            }
+        }
+        private void BtClickUpdate(object sender, RoutedEventArgs e)
+        {
+            UpdateData();
         }
 
         private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
@@ -81,6 +90,19 @@ namespace WpfApp3.Pages
         private void FiltrPost(object sender, SelectionChangedEventArgs e)
         {
             UpdateData();
+        }
+
+        private void addVisChan(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            UpdateData();
+        }
+
+        private void BtClickEdit(object sender, RoutedEventArgs e)
+        {
+            User users = dgvUsers.SelectedItem as User;
+            UsersAdd usersAdd = new UsersAdd(users);
+            NavigationService.Navigate(new UsersAdd(users));
+          
         }
     }
 }
