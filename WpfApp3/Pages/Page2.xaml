@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:gif="http://wpfanimatedgif.codeplex.com"
       xmlns:local="clr-namespace:WpfApp3.Pages"
       mc:Ignorable="d" 
        IsVisibleChanged="addVisChan"
@@ -30,12 +31,19 @@
             </UniformGrid>
             
             <DataGrid Name="dgvUsers" AutoGenerateColumns="False" Grid.Row="1" SelectionMode="Single" >
-               
+                <!--DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image gif:ImageBehavior.AnimatedSource="{Binding ImagePreview, TargetNullValue={StaticResource Picture1 }}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn-->
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Имя пользователя" Width="*" Binding="{Binding NickName}"/>
                     <DataGridTextColumn Header="Логин" Width="*" Binding="{Binding Login}"/>
                     <DataGridTextColumn Header="Пароль" Width="*" Binding="{Binding Pass}"/>
                     <DataGridTextColumn Header="Роль" Width="*" Binding="{Binding Post}"/>
+                    
                 </DataGrid.Columns>
                 <DataGrid.ContextMenu>
                     <ContextMenu>
