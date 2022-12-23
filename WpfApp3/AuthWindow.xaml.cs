@@ -44,7 +44,7 @@ namespace WpfApp3
                 tbPass.Clear();
                 tb1Pass.Clear();
                 Show();
-                Mouse.OverrideCursor = null;
+               Mouse.OverrideCursor = null;
                 
             }
         }

@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:WpfApp3.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
+      IsVisibleChanged="addVisChan"
       Title="Page2">
 
     <Grid>
@@ -15,37 +16,36 @@
                 <RowDefinition />
                 <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
-            <UniformGrid Columns="3" Background="CadetBlue">
-                <TextBox Name="tbSearch" Margin="10"/>
-                <ComboBox Name="cb1" Margin="10" />
-                <ComboBox Name="cb2" Margin="10"/>
+            <UniformGrid Columns="3" Background="Transparent" Grid.Row="0">
+                <TextBox Name="tbSearch" Margin="10" TextChanged="tbSearch_TextChanged" FontSize="20"/>
+                <ComboBox Name="cbSort" Margin="10"  SelectionChanged="SortPost">
+                    <ComboBoxItem Content="По убыванию"/>
+                    <ComboBoxItem Content="По возрастанию"/>
+                </ComboBox>
+                <ComboBox Name="cbFiltr" Margin="10" SelectionChanged="FiltrPost">
+                    <ComboBoxItem Content="Админ"/>
+                    <ComboBoxItem Content="Пользователь"/>
+                    <ComboBoxItem Content="Все"/>
+                </ComboBox>
             </UniformGrid>
             <DataGrid Name="dgvUsers" AutoGenerateColumns="False" Grid.Row="1">
-                <!--Border BorderBrush="Black" BorderThickness="0" Padding="0"  >
-                    <Button Cursor="Hand" MouseDoubleClick="btUserClick" Background="#33FFFFFF" Height="200" Width="200"  BorderBrush="Black" BorderThickness="1">
-                        <Button.ToolTip>
-                            <ToolTip Background="White" Foreground="Black">
-                                <StackPanel>
-                                    <TextBlock>Нажмите дважды, чтобы открыть</TextBlock>
-                                </StackPanel>
-                            </ToolTip>
-                        </Button.ToolTip-->
-                     
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="Имя пользователя" Width="*" Binding="{Binding NickName}"/>
-                                <DataGridTextColumn Header="Логин" Width="*" Binding="{Binding Login}"/>
-                                <DataGridTextColumn Header="Пароль" Width="*" Binding="{Binding Pass}"/>
-                                <DataGridTextColumn Header="Роль" Width="*" Binding="{Binding Post}"/>
-                            </DataGrid.Columns>
-                        
-                    <!--/Button>
-                </Border-->
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Имя пользователя" Width="*" Binding="{Binding NickName}"/>
+                    <DataGridTextColumn Header="Логин" Width="*" Binding="{Binding Login}"/>
+                    <DataGridTextColumn Header="Пароль" Width="*" Binding="{Binding Pass}"/>
+                    <DataGridTextColumn Header="Роль" Width="*" Binding="{Binding Post}"/>
+                </DataGrid.Columns>
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Удалить" Click="BtClickDel" Name="btDel"/>
+                        <MenuItem Header="Редактировать" Click="BtClickEdit" Name="btEdit"/>
+                        <MenuItem Header="Обновить" Click="BtClickUpdate" Name="btUpdate"/>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
             </DataGrid>
             <StackPanel Grid.Row="2">
                 <Button Name="btAdd" Content="Add" Click="btAddClick" Margin="50" HorizontalAlignment="Center" Width="200"/>
             </StackPanel>
-                    
-   
         </Grid>
     </Grid>
 </Page>

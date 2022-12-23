@@ -64,19 +64,7 @@ namespace WpfApp3.Pages
             
         }
 
-        private void btUserClick(object sender, RoutedEventArgs e)
-        {
-            MainWindow mainWindow = new MainWindow();
-            
-            User users = (sender as Button).DataContext as User;
-            UsersAdd usersAdd = new UsersAdd(users);
-            NavigationService.Navigate(new UsersAdd(users));
-            Grid.SetColumnSpan(mainWindow, 2);
-
-
-
-        }
-
+      
         private void btAddClick(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new UsersAdd(new User()));
@@ -125,6 +113,18 @@ namespace WpfApp3.Pages
         {
             Console.WriteLine("joeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeehr");
 
+        }
+
+        private void btUserClick(object sender, MouseButtonEventArgs e)
+        {
+            User users = (sender as Button).DataContext as User;
+            UsersAdd usersAdd = new UsersAdd(users);
+            NavigationService.Navigate(new UsersAdd(users));
+        }
+
+        private void addVisChan(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            UpdateData();
         }
     }
 }
