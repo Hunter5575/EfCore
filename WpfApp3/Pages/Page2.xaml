@@ -31,6 +31,16 @@
             </UniformGrid>
             
             <DataGrid Name="dgvUsers" AutoGenerateColumns="False" Grid.Row="1" SelectionMode="Single" >
+                <DataGrid.CellStyle>
+                    <Style TargetType="DataGridCell">
+                        <Setter Property="Foreground" Value="Red"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Post}" Value="Admin">
+                                <Setter Property="Foreground" Value="Red"></Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.CellStyle>
                 <!--DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -39,11 +49,17 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn-->
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Имя пользователя" Width="*" Binding="{Binding NickName}"/>
+                    <DataGridTextColumn Header="Имя пользователя" Width="*"  Binding="{Binding NickName}"/>
                     <DataGridTextColumn Header="Логин" Width="*" Binding="{Binding Login}"/>
                     <DataGridTextColumn Header="Пароль" Width="*" Binding="{Binding Pass}"/>
                     <DataGridTextColumn Header="Роль" Width="*" Binding="{Binding Post}"/>
-                    
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image gif:ImageBehavior.AnimatedSource="{Binding ImagePreview, TargetNullValue={StaticResource Picture1 }}" Grid.Row="2" Height="auto" Width="auto"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
                 <DataGrid.ContextMenu>
                     <ContextMenu>
