@@ -104,7 +104,7 @@ namespace WpfApp3.Pages
         }
         private void ImageClick(object sender, MouseButtonEventArgs e)
         {
-            OpenFileDialog openFile = new OpenFileDialog { Filter = "*Jpeg images|*.jpg|All files|*.*" };
+            OpenFileDialog openFile = new OpenFileDialog { Filter = "Jpeg images|*.jpg|Png images|*.png|All files|*.*" };
             if (openFile.ShowDialog() == true)
             {
                 users.ImagePreview = File.ReadAllBytes(openFile.FileName);
