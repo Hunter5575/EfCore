@@ -31,7 +31,6 @@ namespace WpfApp3
             InitializeComponent();
             whitepage whitepage = new whitepage();
             Page1 page1= new Page1();
-            
             /*MySqlConnectionStringBuilder build = new MySqlConnectionStringBuilder()
             { 
                 Server = "cfif31.ru",

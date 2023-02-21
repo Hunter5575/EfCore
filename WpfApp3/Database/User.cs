@@ -30,6 +30,6 @@ namespace WpfApp3.Database
             if (PropertyChanged != null)
                 PropertyChanged.Invoke(this, new PropertyChangedEventArgs(PropName));
         }
-        private bool IsPost => (Post=="Admin");
+        
     }
 }

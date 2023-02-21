@@ -59,5 +59,15 @@ namespace WpfApp3.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] EWgbQMeuhNrvBHfdopDamw {
+            get {
+                object obj = ResourceManager.GetObject("EWgbQMeuhNrvBHfdopDamw", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

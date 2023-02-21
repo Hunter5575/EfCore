@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp3"
         mc:Ignorable="d"
-        Title="MainWindow" MinHeight="600px" MinWidth="800" WindowStartupLocation="CenterScreen" >
+        Title="MainWindow" MinHeight="600px" MinWidth="800px" MaxHeight="600px" MaxWidth="800px" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen" >
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
@@ -13,7 +13,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0">
-                <TextBlock Text="Название съел кот" HorizontalAlignment="Center" FontSize="50"/>
+                <TextBlock Text="Название съел кот" HorizontalAlignment="Center" FontSize="50" FontWeight="Normal" FontStyle="Italic" FontFamily="Buxton Sketch" Foreground="Red"/>
             </StackPanel>
             <Grid Grid.Row="1" Grid.ColumnSpan="2">
                 <Grid.ColumnDefinitions>
@@ -21,25 +21,32 @@
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
                 <StackPanel>
-                    <Button Name="btPage1" Content="LvList" Click="btPage1Click" Margin="15">
-                        <Button.ToolTip>
-                            <ToolTip Background="Bisque" Foreground="Black">
-                                <StackPanel>
-                                    <TextBlock>Открывает ListView</TextBlock>
-                                </StackPanel>
-                            </ToolTip>
-                        </Button.ToolTip>
-                    </Button>
-                    <Button Name="btPage2" Content="DGVList" Click="btPage2Click" Margin="15">
-                        <Button.ToolTip>
-                            <ToolTip Background="Bisque" Foreground="Black">
-                                <StackPanel>
-                                    <TextBlock>Открывает DataGridView</TextBlock>
-                                </StackPanel>
-                            </ToolTip>
-                        </Button.ToolTip>
-                    </Button>
+                    <ComboBox Name="cb_Users" Text="Пользователи" Width="200" Height="30" Background="Red" > 
+                        <ComboBoxItem >
+                            <StackPanel>
+                                <Button Name="btPage1" Content="LvList" Click="btPage1Click"  Width="180" Margin="5">
+                                    <Button.ToolTip>
+                                        <ToolTip Background="Bisque" Foreground="Black">
+                                            <StackPanel>
+                                                <TextBlock>Открывает ListView</TextBlock>
+                                            </StackPanel>
+                                        </ToolTip>
+                                    </Button.ToolTip>
+                                </Button>
+                                <Button Name="btPage2" Content="DGVList" Click="btPage2Click"  Width="180" Margin="5">
+                                    <Button.ToolTip>
+                                        <ToolTip Background="Bisque" Foreground="Black">
+                                            <StackPanel>
+                                                <TextBlock>Открывает DataGridView</TextBlock>
+                                            </StackPanel>
+                                        </ToolTip>
+                                    </Button.ToolTip>
+                                </Button>
+                            </StackPanel>
+                        </ComboBoxItem>
+                    </ComboBox>
                 </StackPanel>
+                    
                 <Frame Grid.Column="1" Name="FrNav" NavigationUIVisibility="Hidden" />
             </Grid>
             </Grid>

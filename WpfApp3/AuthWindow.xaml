@@ -8,8 +8,13 @@
         mc:Ignorable="d"
         Title="AuthWindow" MinHeight="450" MinWidth="800" MaxHeight="450" MaxWidth="800" WindowStartupLocation="CenterScreen">
     <Window.Background>
-        <ImageBrush ImageSource="/Resources/EWgbQMeuhNrvBHfdopDamw.gif"  />
+        <VisualBrush>
+            <VisualBrush.Visual>
+                <Image gif:ImageBehavior.AnimatedSource="/Pictures/mw7ar.gif"/>
+            </VisualBrush.Visual>
+        </VisualBrush>
     </Window.Background>
+
 
     <Grid>
         <Menu Height="20" VerticalAlignment="Top">

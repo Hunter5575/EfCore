@@ -83,7 +83,7 @@
                                             <Run Text="Роль" Foreground="Red"/>
                                             <Run Text="{Binding Post}"/>
                                         </TextBlock>
-                                        <Image gif:ImageBehavior.AnimatedSource="{Binding ImagePreview, TargetNullValue={StaticResource Picture1 }}" Grid.Row="2" Height="200" Width="200"/>
+                                        <Image gif:ImageBehavior.AnimatedSource="{Binding ImagePreview, TargetNullValue={StaticResource Picture1 }}" Grid.Row="2" Height="165" Width="165"/>
                                     </Grid>
                                 </Button>
                             </Border>

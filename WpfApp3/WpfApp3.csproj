@@ -10,6 +10,7 @@
   <ItemGroup>
     <None Remove="Pictures\9iithyjt_md.jpg" />
     <None Remove="Pictures\borderlands-sciamano240-devushka-vzgliad-muzhik-krov.jpg" />
+    <None Remove="Pictures\mw7ar.gif" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,6 +32,7 @@
   <ItemGroup>
     <Resource Include="Pictures\9iithyjt_md.jpg" />
     <Resource Include="Pictures\borderlands-sciamano240-devushka-vzgliad-muzhik-krov.jpg" />
+    <Resource Include="Pictures\mw7ar.gif" />
   </ItemGroup>
 
   <ItemGroup>
