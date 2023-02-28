@@ -21,9 +21,10 @@
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
                 <StackPanel>
-                    <ComboBox Name="cb_Users" Text="Пользователи" Width="200" Height="30" Background="Red" > 
-                        <ComboBoxItem >
-                            <StackPanel>
+                    <ComboBox Name="cb_Users" Width="200" Height="30" Background="Red" Text="Users">
+                        <!--<Label HorizontalAlignment="Center" Visibility="Hidden">Пользователи</Label>-->
+                        <TextBlock IsEnabled="False" Visibility="Hidden">Users</TextBlock>
+                        <StackPanel >
                                 <Button Name="btPage1" Content="LvList" Click="btPage1Click"  Width="180" Margin="5">
                                     <Button.ToolTip>
                                         <ToolTip Background="Bisque" Foreground="Black">
@@ -43,7 +44,7 @@
                                     </Button.ToolTip>
                                 </Button>
                             </StackPanel>
-                        </ComboBoxItem>
+                        
                     </ComboBox>
                 </StackPanel>
                     
