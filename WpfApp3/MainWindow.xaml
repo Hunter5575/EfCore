@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp3"
         mc:Ignorable="d"
-        Title="MainWindow" MinHeight="600px" MinWidth="800px" MaxHeight="600px" MaxWidth="800px" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen" >
+        Title="MainWindow" MinHeight="600px" MinWidth="800px" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen" >
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
@@ -13,7 +13,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0">
-                <TextBlock Text="Название съел кот" HorizontalAlignment="Center" FontSize="50" FontWeight="Normal" FontStyle="Italic" FontFamily="Buxton Sketch" Foreground="Red"/>
+                <TextBlock Text="Скейвены" HorizontalAlignment="Center" FontSize="50" FontWeight="Normal" FontStyle="Italic" FontFamily="Buxton Sketch" Foreground="#FF78AD0B"/>
             </StackPanel>
             <Grid Grid.Row="1" Grid.ColumnSpan="2">
                 <Grid.ColumnDefinitions>
