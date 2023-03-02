@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" MinHeight="600px" MinWidth="800px" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen" >
     <Grid>
+        <MediaElement Source="\music\plamenev - русский не побеждён.mp3"> </MediaElement>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="100"/>
