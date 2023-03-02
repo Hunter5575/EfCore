@@ -24,11 +24,12 @@ namespace WpfApp3
     /// </summary>
     public partial class MainWindow : Window
     {
-       
+        public MediaPlayer mediaPlayer = new MediaPlayer();
         public MainWindow()
         {
            
             InitializeComponent();
+           // mediaPlayer.Open(new Uri(@"/music/plamenev - русский не побеждён.mp3"));
             whitepage whitepage = new whitepage();
             Page1 page1= new Page1();
             /*MySqlConnectionStringBuilder build = new MySqlConnectionStringBuilder()
@@ -54,6 +55,11 @@ namespace WpfApp3
         {
             FrNav.Navigate(new Page2());
         }
-       
+
+        private void btnPlay_Click(object sender, RoutedEventArgs e)
+        { 
+            
+            mediaPlayer.Play();
+        }
     }
 }

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" MinHeight="600px" MinWidth="800px" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen" >
     <Grid>
-        <MediaElement Source="\music\plamenev - русский не побеждён.mp3"> </MediaElement>
+        <!--<MediaElement Source="\music\plamenev - русский не побеждён.mp3"></MediaElement>-->
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="100"/>
@@ -48,7 +48,7 @@
                         
                     </ComboBox>
                 </StackPanel>
-                    
+                <Button Name="btnPlay" Click="btnPlay_Click" Height="30" VerticalAlignment="Bottom">Play</Button>
                 <Frame Grid.Column="1" Name="FrNav" NavigationUIVisibility="Hidden" />
             </Grid>
             </Grid>
