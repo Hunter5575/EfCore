@@ -1,4 +1,5 @@
-﻿using MySqlConnector;
+﻿using Microsoft.Win32;
+using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -57,9 +58,15 @@ namespace WpfApp3
         }
 
         private void btnPlay_Click(object sender, RoutedEventArgs e)
-        { 
-            
-            mediaPlayer.Play();
+        {
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "MP3 files|*.mp3|All files|*.*";
+            if (openFileDialog.ShowDialog() == true)
+            {
+                mediaPlayer.Open(new Uri(openFileDialog.FileName));
+                mediaPlayer.Play();
+            }
         }
     }
 }
