@@ -121,4 +121,7 @@
   <data name="EWgbQMeuhNrvBHfdopDamw" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Pictures\mw7ar.gif;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="StalkerSOC" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\STALKER_Shadow_Of_Chernobyl_OST_-_Main_Menu_Theme_68871893.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

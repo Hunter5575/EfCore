@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -15,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using WpfApp3.Database;
 using WpfApp3.Pages;
 
@@ -26,6 +28,7 @@ namespace WpfApp3
     public partial class MainWindow : Window
     {
         public MediaPlayer mediaPlayer = new MediaPlayer();
+        private SoundPlayer player;
         public MainWindow()
         {
            
@@ -33,6 +36,10 @@ namespace WpfApp3
            // mediaPlayer.Open(new Uri(@"/music/plamenev - русский не побеждён.mp3"));
             whitepage whitepage = new whitepage();
             Page1 page1= new Page1();
+            player = new SoundPlayer();
+            player.Stream = Properties.Resources.StalkerSOC; // <<---- aga.wav  сам файл фоновой озвучки
+            
+            player.PlayLooping();
             /*MySqlConnectionStringBuilder build = new MySqlConnectionStringBuilder()
             { 
                 Server = "cfif31.ru",
@@ -44,7 +51,11 @@ namespace WpfApp3
             };
             Trace.WriteLine(build.ConnectionString);
             Server=cfif31.ru;Port=3306;User ID=ISPr22-43_NekrasovAI;Password=ISPr22-43_NekrasovAI;Character Set=utf8;Database=ISPr22-43_NekrasovAI_02*/
-            
+
+            //DispatcherTimer timer = new DispatcherTimer();
+            //timer.Interval = TimeSpan.FromSeconds(1);
+            //timer.Tick += timer_Tick;
+            //timer.Start();
         }
         
         private void btPage1Click(object sender, RoutedEventArgs e)
@@ -59,14 +70,21 @@ namespace WpfApp3
 
         private void btnPlay_Click(object sender, RoutedEventArgs e)
         {
-
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "MP3 files|*.mp3|All files|*.*";
             if (openFileDialog.ShowDialog() == true)
             {
                 mediaPlayer.Open(new Uri(openFileDialog.FileName));
-                mediaPlayer.Play();
+
             }
+            mediaPlayer.Play();
         }
+        //void timer_Tick(object sender, EventArgs e)
+        //{
+        //    if (mediaPlayer.Source != null)
+        //        lblStatus.Content = String.Format("{0} / {1}", mediaPlayer.Position.ToString(@"mm\:ss"), mediaPlayer.NaturalDuration.TimeSpan.ToString(@"mm\:ss"));
+        //    else
+        //        lblStatus.Content = "No file selected...";
+        //}
     }
 }

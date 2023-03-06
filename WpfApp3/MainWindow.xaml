@@ -7,6 +7,26 @@
         mc:Ignorable="d"
         Title="MainWindow" MinHeight="600px" MinWidth="800px" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen" >
     <Grid>
+        
+            <!--<MediaElement  Name="myMediaElement" >
+                <MediaElement.Triggers>
+                    <EventTrigger RoutedEvent="MediaElement.Loaded">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard>
+
+                                    --><!-- The MediaTimeline has a RepeatBehavior="Forever" which makes the media play
+                     over and over indefinitely.--><!--
+                                    <MediaTimeline Source="music\stalker_shadow_of_chernobyl_ost_-_main_menu_theme_68871893.wav" Storyboard.TargetName="myMediaElement"  
+                 RepeatBehavior="Forever" />
+
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                </MediaElement.Triggers>
+            </MediaElement>-->
+                
         <!--<MediaElement Source="\music\plamenev - русский не побеждён.mp3"></MediaElement>-->
         <Grid>
             <Grid.RowDefinitions>
@@ -26,31 +46,32 @@
                         <!--<Label HorizontalAlignment="Center" Visibility="Hidden">Пользователи</Label>-->
                         <TextBlock IsEnabled="False" Visibility="Hidden">Users</TextBlock>
                         <StackPanel >
-                                <Button Name="btPage1" Content="LvList" Click="btPage1Click"  Width="180" Margin="5">
-                                    <Button.ToolTip>
-                                        <ToolTip Background="Bisque" Foreground="Black">
-                                            <StackPanel>
-                                                <TextBlock>Открывает ListView</TextBlock>
-                                            </StackPanel>
-                                        </ToolTip>
-                                    </Button.ToolTip>
-                                </Button>
-                                <Button Name="btPage2" Content="DGVList" Click="btPage2Click"  Width="180" Margin="5">
-                                    <Button.ToolTip>
-                                        <ToolTip Background="Bisque" Foreground="Black">
-                                            <StackPanel>
-                                                <TextBlock>Открывает DataGridView</TextBlock>
-                                            </StackPanel>
-                                        </ToolTip>
-                                    </Button.ToolTip>
-                                </Button>
-                            </StackPanel>
-                        
+                            <Button Name="btPage1" Content="LvList" Click="btPage1Click"  Width="180" Margin="5">
+                                <Button.ToolTip>
+                                    <ToolTip Background="Bisque" Foreground="Black">
+                                        <StackPanel>
+                                            <TextBlock>Открывает ListView</TextBlock>
+                                        </StackPanel>
+                                    </ToolTip>
+                                </Button.ToolTip>
+                            </Button>
+                            <Button Name="btPage2" Content="DGVList" Click="btPage2Click"  Width="180" Margin="5">
+                                <Button.ToolTip>
+                                    <ToolTip Background="Bisque" Foreground="Black">
+                                        <StackPanel>
+                                            <TextBlock>Открывает DataGridView</TextBlock>
+                                        </StackPanel>
+                                    </ToolTip>
+                                </Button.ToolTip>
+                            </Button>
+                        </StackPanel>
+
                     </ComboBox>
                 </StackPanel>
+                <Label Name="lblStatus" Content="Not playing..." HorizontalContentAlignment="Center" Margin="5,421,5,35" />
                 <Button Name="btnPlay" Click="btnPlay_Click" Height="30" VerticalAlignment="Bottom">Play</Button>
                 <Frame Grid.Column="1" Name="FrNav" NavigationUIVisibility="Hidden" />
             </Grid>
-            </Grid>
         </Grid>
+    </Grid>
 </Window>

@@ -5,6 +5,7 @@
              StartupUri="AuthWindow.xaml">
     <Application.Resources>
         <BitmapImage x:Key="Picture1" UriSource="/Pictures/9iithyjt_md.jpg"/>
+        
     </Application.Resources>
 
 </Application>
