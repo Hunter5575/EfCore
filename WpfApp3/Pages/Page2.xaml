@@ -30,24 +30,24 @@
                 </ComboBox>
             </UniformGrid>
             
-            <DataGrid Name="dgvUsers" AutoGenerateColumns="False" Grid.Row="1" SelectionMode="Single" >
-                <DataGrid.CellStyle>
-                    <Style TargetType="DataGridCell">
-                        <Setter Property="Foreground" Value="Red"/>
+            <DataGrid x:Name="dgvUsers" AutoGenerateColumns="False" Grid.Row="1" SelectionMode="Single" IsReadOnly="True">
+                
+                <DataGrid.Resources>
+                    <Style TargetType="{x:Type DataGridCell}">
                         <Style.Triggers>
-                            <DataTrigger Binding="{Binding Post}" Value="Admin">
-                                <Setter Property="Foreground" Value="Red"></Setter>
+                            
+                            <DataTrigger  Binding="{Binding Post}" TextOptions.TextFormattingMode="Ideal" Value="Admin">
+                                <Setter  Property="Foreground"  Value="Red"/>
+                                <Setter Property="FontFamily" Value="Comic Sans MS"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Post}" Value="User">
+                                <Setter Property="Foreground" Value="Green"/>
+                                <Setter Property="FontFamily" Value="Comic Sans MS"/>
                             </DataTrigger>
                         </Style.Triggers>
                     </Style>
-                </DataGrid.CellStyle>
-                <!--DataGridTemplateColumn>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Image gif:ImageBehavior.AnimatedSource="{Binding ImagePreview, TargetNullValue={StaticResource Picture1 }}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn-->
+                </DataGrid.Resources>
+                
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Имя пользователя" Width="*"  Binding="{Binding NickName}"/>
                     <DataGridTextColumn Header="Логин" Width="*" Binding="{Binding Login}"/>
@@ -56,7 +56,7 @@
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Image gif:ImageBehavior.AnimatedSource="{Binding ImagePreview, TargetNullValue={StaticResource Picture1 }}" Grid.Row="2" Height="125" Width="125"/>
+                                <Image gif:ImageBehavior.AnimatedSource="{Binding ImagePreview, TargetNullValue={StaticResource Picture1 }}" Grid.Row="2" Height="200" Width="250"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

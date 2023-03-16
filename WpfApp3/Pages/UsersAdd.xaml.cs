@@ -49,13 +49,14 @@ namespace WpfApp3.Pages
            
             DataContext = users;
         }
-
+        //2324
         private void BtClickSave(object sender, RoutedEventArgs e)
         {
             
             if (users.IdUsers == 0)
                 EfModel.Init().Users.Add(users);
             EfModel.Init().SaveChanges();
+            ImageBtClick.IsEnabled= false;
             btSave.Visibility = Visibility.Collapsed;
             btEdit.Visibility = Visibility.Visible;
             btBack.Visibility = Visibility.Visible;
@@ -63,7 +64,7 @@ namespace WpfApp3.Pages
             tbNikcName.IsEnabled = false;
             tbPassU.IsEnabled = false;
             tbPostU.IsEnabled = false;
-            Image.IsEnabled=false;
+           
             tbNikcName.Background = new SolidColorBrush(Colors.Black);
             tbLoginU.Background = new SolidColorBrush(Colors.Black);
             tbPassU.Background = new SolidColorBrush(Colors.Black);
@@ -81,11 +82,12 @@ namespace WpfApp3.Pages
             btEdit.Visibility=Visibility.Collapsed;
             btSave.Visibility=Visibility.Visible;
             btBack.Visibility=Visibility.Collapsed;
+            ImageBtClick.IsEnabled = true; ;
             tbLoginU.IsEnabled = true;
             tbNikcName.IsEnabled = true;
             tbPassU.IsEnabled = true;
             tbPostU.IsEnabled = true;
-            Image.IsEnabled=true;
+           
             tbNikcName.Background = new SolidColorBrush(Colors.White);
             tbLoginU.Background = new SolidColorBrush(Colors.White);
             tbPassU.Background = new SolidColorBrush(Colors.White);

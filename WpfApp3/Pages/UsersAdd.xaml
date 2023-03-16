@@ -30,7 +30,7 @@
 
 
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Width="500" Grid.Row="1">
-            <Image gif:ImageBehavior.AnimatedSource="{Binding ImagePreview, TargetNullValue={StaticResource Picture1 }}" Height="200" Width="200" MouseDown="ImageClick"  Name="Image" Cursor="Hand"/>
+            <Image gif:ImageBehavior.AnimatedSource="{Binding ImagePreview, TargetNullValue={StaticResource Picture1 }}" IsEnabled="False" Height="200" Width="200" MouseDown="ImageClick"  Name="ImageBtClick" Cursor="Hand"/>
             <TextBlock Text="Имя пользователя"/>
             <TextBox Text="{Binding NickName}" Name="tbNikcName" IsEnabled="False"/>
             <TextBlock Text="Логин"/>

@@ -37,10 +37,10 @@ namespace WpfApp3
             whitepage whitepage = new whitepage();
             Page1 page1= new Page1();
             player = new SoundPlayer();
-            player.Stream = Properties.Resources.StalkerSOC; // <<---- aga.wav  сам файл фоновой озвучки
+            player.Stream = Properties.Resources.StalkerSOC; 
             
             player.PlayLooping();
-            /*MySqlConnectionStringBuilder build = new MySqlConnectionStringBuilder()
+                        /*MySqlConnectionStringBuilder build = new MySqlConnectionStringBuilder()
             { 
                 Server = "cfif31.ru",
                 Port = 3306,
@@ -78,6 +78,7 @@ namespace WpfApp3
 
             }
             mediaPlayer.Play();
+           
         }
         //void timer_Tick(object sender, EventArgs e)
         //{

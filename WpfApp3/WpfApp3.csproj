@@ -8,10 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Music\STALKER_Shadow_Of_Chernobyl_OST_-_Main_Menu_Theme_68871893.wav" />
     <None Remove="Pictures\9iithyjt_md.jpg" />
     <None Remove="Pictures\borderlands-sciamano240-devushka-vzgliad-muzhik-krov.jpg" />
     <None Remove="Pictures\mw7ar.gif" />
+    <None Remove="Resources\HarmfulShamelessCod-size_restricted.gif" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,10 +31,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Music\STALKER_Shadow_Of_Chernobyl_OST_-_Main_Menu_Theme_68871893.wav" />
     <Resource Include="Pictures\9iithyjt_md.jpg" />
     <Resource Include="Pictures\borderlands-sciamano240-devushka-vzgliad-muzhik-krov.jpg" />
     <Resource Include="Pictures\mw7ar.gif" />
+    <Resource Include="Resources\HarmfulShamelessCod-size_restricted.gif" />
   </ItemGroup>
 
   <ItemGroup>

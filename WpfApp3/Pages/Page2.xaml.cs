@@ -25,6 +25,7 @@ namespace WpfApp3.Pages
         {
             if (dgvUsers == null)
                 return;
+            //dgv.itemsSource=EfModel.Init().Users.Where(u => u.NickName.Contains(tbSearch.Text)).ToList();
             IEnumerable<User> UserDGV = EfModel.Init().Users.Where(u => u.NickName.Contains(tbSearch.Text)).ToList();
             if (cbSort.SelectedIndex == 0)
             {

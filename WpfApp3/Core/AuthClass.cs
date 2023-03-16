@@ -15,5 +15,6 @@ namespace WpfApp3.Core
             user = EfModel.Init().Users.FirstOrDefault(u => u.Login == login && u.Pass == pass);
             return user != null;
         }
+
     }
 }

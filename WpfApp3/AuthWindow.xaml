@@ -10,7 +10,8 @@
     <Window.Background>
         <VisualBrush>
             <VisualBrush.Visual>
-                <Image gif:ImageBehavior.AnimatedSource="/Pictures/mw7ar.gif"/>
+                <Image gif:ImageBehavior.AnimatedSource="/Resources/HarmfulShamelessCod-size_restricted.gif"/>
+
             </VisualBrush.Visual>
         </VisualBrush>
     </Window.Background>

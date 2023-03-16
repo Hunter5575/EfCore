@@ -24,6 +24,7 @@ namespace WpfApp3.Database
             }
         }
 
+        public bool IsPost=>Post=="Admin";
         public event PropertyChangedEventHandler PropertyChanged;
         private void PropChange([CallerMemberName] string PropName = "")
         {
