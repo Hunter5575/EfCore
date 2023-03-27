@@ -40,24 +40,24 @@ namespace WpfApp3
             player.Stream = Properties.Resources.StalkerSOC; 
             
             player.PlayLooping();
-                        /*MySqlConnectionStringBuilder build = new MySqlConnectionStringBuilder()
-            { 
-                Server = "cfif31.ru",
-                Port = 3306,
-                UserID = "ISPr22-43_NekrasovAI",
-                Password = "ISPr22-43_NekrasovAI",
-                CharacterSet = "utf8",
-                Database = "ISPr22-43_NekrasovAI_02"
-            };
-            Trace.WriteLine(build.ConnectionString);
-            Server=cfif31.ru;Port=3306;User ID=ISPr22-43_NekrasovAI;Password=ISPr22-43_NekrasovAI;Character Set=utf8;Database=ISPr22-43_NekrasovAI_02*/
+            //MySqlConnectionStringBuilder build = new MySqlConnectionStringBuilder()
+            //{
+            //    Server = "cfif31.ru",
+            //    Port = 3306,
+            //    UserID = "ISPr22-43_NekrasovAI",
+            //    Password = "ISPr22-43_NekrasovAI",
+            //    CharacterSet = "utf8",
+            //    Database = "ISPr22-43_NekrasovAI_02"
+            //};
+            //Trace.WriteLine(build.ConnectionString);
+            //Server = cfif31.ru; Port = 3306; User ID = ISPr22 - 43_NekrasovAI; Password = ISPr22 - 43_NekrasovAI; Character Set = utf8; Database = ISPr22 - 43_NekrasovAI_02
 
-            //DispatcherTimer timer = new DispatcherTimer();
+            //            DispatcherTimer timer = new DispatcherTimer();
             //timer.Interval = TimeSpan.FromSeconds(1);
             //timer.Tick += timer_Tick;
             //timer.Start();
         }
-        
+
         private void btPage1Click(object sender, RoutedEventArgs e)
         {
             FrNav.Navigate(new Page1());
@@ -80,12 +80,28 @@ namespace WpfApp3
             mediaPlayer.Play();
            
         }
+
+        private void SeekToMediaPosition(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            int SliderValue=(int)timelineSlider.Value;
+            TimeSpan ts = new TimeSpan(0, 0, 0, 0, SliderValue);
+            mediaPlayer.Position = ts;
+        }
+
+        private void Elemement_MediaOpened(object sender, RoutedEventArgs e)
+        {
+            timelineSlider.Maximum = mediaPlayer.NaturalDuration.TimeSpan.TotalMilliseconds;
+        }
         //void timer_Tick(object sender, EventArgs e)
         //{
         //    if (mediaPlayer.Source != null)
-        //        lblStatus.Content = String.Format("{0} / {1}", mediaPlayer.Position.ToString(@"mm\:ss"), mediaPlayer.NaturalDuration.TimeSpan.ToString(@"mm\:ss"));
+        //        lblStatus.Content = String.Format("{0} / {1}", mediaPlayer.Position.ToString(@"mm\:ss"), Element_MediaOpened );
         //    else
         //        lblStatus.Content = "No file selected...";
+        //}
+        //private void Element_MediaOpened(object sender, EventArgs e)
+        //{
+        //    lblStatus.Content = mediaPlayer.NaturalDuration.TimeSpan.ToString(@"mm\:ss");
         //}
     }
 }

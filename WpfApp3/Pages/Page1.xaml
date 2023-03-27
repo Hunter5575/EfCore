@@ -34,6 +34,21 @@
                 </ComboBox>
             </UniformGrid>
             <ListView Name="LvUsers" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="1" Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
+                <ListView.Resources>
+                    <Style TargetType="ListView"  >
+                        <Style.Triggers>
+
+                            <DataTrigger  Binding="{Binding Post}" TextOptions.TextFormattingMode="Ideal" Value="Admin">
+                                <Setter  Property="Foreground"  Value="Red"/>
+                                <Setter Property="FontFamily" Value="Comic Sans MS"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Post}" Value="User">
+                                <Setter Property="Foreground" Value="Green"/>
+                                <Setter Property="FontFamily" Value="Comic Sans MS"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListView.Resources>
                 <!--ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
@@ -76,11 +91,25 @@
                                         </Grid.ContextMenu>
                                         <!--ListBox Background="#33FFFFFF" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Left"/-->
                                         <TextBlock Grid.Row="0" >
-                                            <Run Text="Имя пользователя" Foreground="Red"/>
+                                            
                                             <Run Text="{Binding NickName}"/>
                                         </TextBlock>
-                                        <TextBlock Grid.Row="1">
-                                            <Run Text="Роль" Foreground="Red"/>
+                                        <TextBlock Grid.Row="1" >
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Style.Triggers>
+                                                        <DataTrigger  Binding="{Binding Post}" TextOptions.TextFormattingMode="Ideal" Value="Admin">
+                                                            <Setter  Property="Foreground"  Value="Red"/>
+                                                            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding Post}" Value="User">
+                                                            <Setter Property="Foreground" Value="Green"/>
+                                                            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                    </Style>
+                                            </TextBlock.Style>
+                                            
                                             <Run Text="{Binding Post}"/>
                                         </TextBlock>
                                         <Image gif:ImageBehavior.AnimatedSource="{Binding ImagePreview, TargetNullValue={StaticResource Picture1 }}" Grid.Row="2" Height="250" Width="250"/>

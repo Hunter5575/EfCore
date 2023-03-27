@@ -68,8 +68,12 @@
 
                     </ComboBox>
                 </StackPanel>
-                <Label Name="lblStatus" Content="Not playing..." HorizontalContentAlignment="Center" Margin="5,421,5,35" />
+                <StackPanel VerticalAlignment="Bottom">
+                    <MediaElement Name="mediaElement" Source="{Binding btnPlay}" MediaOpened="Elemement_MediaOpened" LoadedBehavior="Manual" UnloadedBehavior="Stop" Stretch="Fill" Height="50" Grid.Column="0" />
+                    <Slider Name="timelineSlider" ValueChanged="SeekToMediaPosition"/>
+                    <!--<Label Name="lblStatus" Content="Not playing..." HorizontalContentAlignment="Center" Margin="5,421,5,35" />-->
                 <Button Name="btnPlay" Click="btnPlay_Click" Height="30" VerticalAlignment="Bottom">Play</Button>
+                </StackPanel>
                 <Frame Grid.Column="1" Name="FrNav" NavigationUIVisibility="Hidden" />
             </Grid>
         </Grid>

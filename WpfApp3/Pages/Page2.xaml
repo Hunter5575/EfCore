@@ -9,7 +9,7 @@
        IsVisibleChanged="addVisChan"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Page2">
-
+    
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
@@ -31,9 +31,23 @@
             </UniformGrid>
             
             <DataGrid x:Name="dgvUsers" AutoGenerateColumns="False" Grid.Row="1" SelectionMode="Single" IsReadOnly="True">
-                
-                <DataGrid.Resources>
+                <DataGrid.CellStyle>
                     <Style TargetType="{x:Type DataGridCell}">
+                        <Style.Triggers>
+
+                            <DataTrigger  Binding="{Binding Post}" TextOptions.TextFormattingMode="Ideal" Value="Admin">
+                                <Setter  Property="Foreground"  Value="Red"/>
+                                <Setter Property="FontFamily" Value="Comic Sans MS"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Post}" Value="User">
+                                <Setter Property="Foreground" Value="Green"/>
+                                <Setter Property="FontFamily" Value="Comic Sans MS"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.CellStyle>
+                <!--<DataGrid.Resources>
+                    <Style TargetType="{x:Type DataGridCell}"  >
                         <Style.Triggers>
                             
                             <DataTrigger  Binding="{Binding Post}" TextOptions.TextFormattingMode="Ideal" Value="Admin">
@@ -46,7 +60,7 @@
                             </DataTrigger>
                         </Style.Triggers>
                     </Style>
-                </DataGrid.Resources>
+                </DataGrid.Resources>-->
                 
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Имя пользователя" Width="*"  Binding="{Binding NickName}"/>

@@ -101,5 +101,17 @@ namespace WpfApp3
         {
 
         }
+
+        private void BtGuestCLick(object sender, RoutedEventArgs e)
+        {
+            
+            if (AuthClass.Auth(Convert.ToString(1), Convert.ToString(1)))
+            {
+                MainWindow mainWindow = new MainWindow();
+                Hide();
+                mainWindow.ShowDialog();
+                Show();
+            }
+        }
     }
 }

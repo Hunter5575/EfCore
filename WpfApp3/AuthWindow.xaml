@@ -70,6 +70,7 @@
                 </Button.ToolTip>
             </Button-->
         </StackPanel>
+        <Button Name="btGuest" Click="BtGuestCLick" Content="Гость" Width="100" Height="40" VerticalAlignment="Bottom"/>
         <Frame Grid.Row="0" x:Name="Switch" NavigationUIVisibility="Hidden" Grid.ColumnSpan="2" Navigated="Switch_Navigated"></Frame>
     </Grid>
 </Window>
