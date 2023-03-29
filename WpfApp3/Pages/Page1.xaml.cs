@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,46 +23,67 @@ namespace WpfApp3.Pages
     /// </summary>
     public partial class Page1 : Page
     {
-        private void UpdateData() {
+
+        private void UpdateData()
+        {
+
             if (LvUsers == null)
                 return;
-            IEnumerable<User> UserList = EfModel.Init().Users.Where(u=>u.NickName.Contains(tbSearch.Text)).ToList();
+            IEnumerable<User> UserList = EfModel.Init().Users.Where(u => u.NickName.Contains(tbSearch.Text)).ToList();
             if (cbSort.SelectedIndex == 0)
             {
                 UserList = UserList.OrderByDescending(p => p.NickName);
             }
-            else 
+            else
             {
                 UserList = UserList.OrderBy(p => p.NickName);
             }
 
-            switch (cbFiltr.SelectedIndex) 
+            switch (cbFiltr.SelectedIndex)
             {
                 case 0:
-                    UserList= UserList.Where(p => p.Post=="Admin");
+                    UserList = UserList.Where(p => p.Post == "Admin");
                     break;
                 case 1:
                     UserList = UserList.Where(p => p.Post == "User");
                     break;
             }
-
-
             LvUsers.ItemsSource = UserList;
         }
-       
+
+
+
+
         public Page1()
         {
-            
+
             InitializeComponent();
             if (AuthClass.user.Post == "Admin")
             {
                 btAdd.Visibility = Visibility.Visible;
-               
+
             }
 
             UpdateData();
-           
-            
+
+
+
+        }
+        
+        public class UsersRepository
+        {
+            private ObservableCollection<User> users;
+            public UsersRepository()
+            {
+                users = new ObservableCollection<User>
+            {
+                //Page1.UpdateData()
+            };
+            }
+            public ObservableCollection<User> GetUser()
+            {
+                return users;
+            }
         }
 
         private void btUserClick(object sender, RoutedEventArgs e)
@@ -127,3 +149,4 @@ namespace WpfApp3.Pages
         }
     }
 }
+

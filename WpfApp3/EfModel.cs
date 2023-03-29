@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using WpfApp3.Database;
@@ -17,6 +18,7 @@ namespace WpfApp3
         }
         public EfModel()
         {
+           
         }
 
         public EfModel(DbContextOptions<EfModel> options)

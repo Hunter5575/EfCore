@@ -31,21 +31,7 @@
             </UniformGrid>
             
             <DataGrid x:Name="dgvUsers" AutoGenerateColumns="False" Grid.Row="1" SelectionMode="Single" IsReadOnly="True">
-                <DataGrid.CellStyle>
-                    <Style TargetType="{x:Type DataGridCell}">
-                        <Style.Triggers>
-
-                            <DataTrigger  Binding="{Binding Post}" TextOptions.TextFormattingMode="Ideal" Value="Admin">
-                                <Setter  Property="Foreground"  Value="Red"/>
-                                <Setter Property="FontFamily" Value="Comic Sans MS"/>
-                            </DataTrigger>
-                            <DataTrigger Binding="{Binding Post}" Value="User">
-                                <Setter Property="Foreground" Value="Green"/>
-                                <Setter Property="FontFamily" Value="Comic Sans MS"/>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </DataGrid.CellStyle>
+                
                 <!--<DataGrid.Resources>
                     <Style TargetType="{x:Type DataGridCell}"  >
                         <Style.Triggers>
@@ -66,7 +52,23 @@
                     <DataGridTextColumn Header="Имя пользователя" Width="*"  Binding="{Binding NickName}"/>
                     <DataGridTextColumn Header="Логин" Width="*" Binding="{Binding Login}"/>
                     <DataGridTextColumn Header="Пароль" Width="*" Binding="{Binding Pass}"/>
-                    <DataGridTextColumn Header="Роль" Width="*" Binding="{Binding Post}"/>
+                    <DataGridTextColumn Header="Роль" Width="*" Binding="{Binding Post}">
+                        <DataGridTextColumn.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Style.Triggers>
+
+                                    <DataTrigger  Binding="{Binding Post}" TextOptions.TextFormattingMode="Ideal" Value="Admin">
+                                        <Setter  Property="Foreground"  Value="Red"/>
+                                        <Setter Property="FontFamily" Value="Comic Sans MS"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Post}" Value="User">
+                                        <Setter Property="Foreground" Value="Green"/>
+                                        <Setter Property="FontFamily" Value="Comic Sans MS"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGridTextColumn.CellStyle>
+                    </DataGridTextColumn>
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
