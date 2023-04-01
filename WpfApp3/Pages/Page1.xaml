@@ -5,12 +5,14 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:gif="http://wpfanimatedgif.codeplex.com"
       xmlns:local="clr-namespace:WpfApp3.Pages"
-      
+      xmlns:l="clr-namespace:WpfApp3.Pages"
       mc:Ignorable="d" 
        IsVisibleChanged="addVisChan"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Page1">
-    
+    <Page.Resources>
+        <ObjectDataProvider x:Key="usersProvider" ObjectType="{x:Type local:Page1}" MethodName="GetUsers"/>
+    </Page.Resources>
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
@@ -31,7 +33,7 @@
                     <ComboBoxItem Content="Все"/>
                 </ComboBox>
             </UniformGrid>
-            <ListView  Name="LvUsers" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="1" Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
+            <ListView ItemsSource="{Binding Source={StaticResource usersProvider}}"  Name="LvUsers" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="1" Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
                
                 <!--ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">

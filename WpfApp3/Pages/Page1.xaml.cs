@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Migrations.Operations;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace WpfApp3.Pages
     public partial class Page1 : Page
     {
 
-        private void UpdateData()
+        public void UpdateData()
         {
 
             if (LvUsers == null)
@@ -64,27 +65,24 @@ namespace WpfApp3.Pages
 
             }
 
-            UpdateData();
-
-
-
         }
-        
+
         public class UsersRepository
         {
             private ObservableCollection<User> users;
             public UsersRepository()
             {
-                users = new ObservableCollection<User>
-            {
-                //Page1.UpdateData()
-            };
+                users = new ObservableCollection<User>()
+                {
+                    new User{NickName="Анатолий Рогатая крыса", Post="Admin" }
+                };
             }
-            public ObservableCollection<User> GetUser()
+            public ObservableCollection<User> GetUsers()
             {
                 return users;
             }
         }
+
 
         private void btUserClick(object sender, RoutedEventArgs e)
         {
