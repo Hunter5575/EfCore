@@ -5,29 +5,107 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp3"
         mc:Ignorable="d"
-        Title="MainWindow" MinHeight="600px" MinWidth="800px" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen" >
+        Title="Главное меню" MinHeight="600px" MinWidth="800px" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen" >
+    <Window.Resources>
+        <LinearGradientBrush x:Key="NormalBrush" StartPoint="0,0" EndPoint="0,1">
+            <GradientBrush.GradientStops>
+                <GradientStopCollection>
+                    <GradientStop Color="#FF78AD0B" Offset="0.0"/>
+                    <GradientStop Color="ForestGreen" Offset="1.0"/>
+                </GradientStopCollection>
+            </GradientBrush.GradientStops>
+        </LinearGradientBrush>
+
+        <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#FF78AD0B" />
+
+        <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="ToggleButton">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="20" />
+                </Grid.ColumnDefinitions>
+                <Border x:Name="Border" Grid.ColumnSpan="2" CornerRadius="2"
+  Background="{StaticResource NormalBrush}"
+  BorderThickness="1" />
+                <Border 
+  Grid.Column="0"
+  CornerRadius="2,0,0,2" 
+  Margin="1" 
+  Background="{StaticResource WindowBackgroundBrush}" 
+  BorderThickness="0,0,1,0" />
+                <Path 
+  x:Name="Arrow"
+  Grid.Column="1"     
+  HorizontalAlignment="Center"
+  VerticalAlignment="Center"
+  Data="M 0 0 L 4 4 L 8 0 Z"/>
+            </Grid>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="ComboBoxTextBox" TargetType="TextBox">
+            <Border x:Name="PART_ContentHost" Focusable="False" Background="{TemplateBinding Background}" />
+        </ControlTemplate>
+
+
+        <Style x:Key="{x:Type ComboBox}" TargetType="ComboBox">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Grid>
+                            <ToggleButton 
+         Name="ToggleButton" 
+         Template="{StaticResource ComboBoxToggleButton}" 
+         Grid.Column="2" 
+         Focusable="false"
+         IsChecked="{Binding Path=IsDropDownOpen,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}"
+         ClickMode="Press">
+                            </ToggleButton>
+                            <ContentPresenter
+        Name="ContentSite"
+        IsHitTestVisible="False" 
+        Margin="3,3,23,3"
+        VerticalAlignment="Center"
+        HorizontalAlignment="Left" />
+                            <TextBox x:Name="PART_EditableTextBox"
+         Style="{x:Null}" 
+         Template="{StaticResource ComboBoxTextBox}" 
+         HorizontalAlignment="Left" 
+         VerticalAlignment="Center" 
+         Margin="3,3,23,3"
+         Focusable="True" 
+         Background="Transparent"
+         Visibility="Hidden"
+         IsReadOnly="{TemplateBinding IsReadOnly}"/>
+                            <Popup 
+        Name="Popup"
+        Placement="Bottom"
+        IsOpen="{TemplateBinding IsDropDownOpen}"
+        AllowsTransparency="True" 
+        Focusable="False"
+        PopupAnimation="Slide">
+                                <Grid 
+          Name="DropDown"
+          SnapsToDevicePixels="True"                
+          MinWidth="{TemplateBinding ActualWidth}"
+          MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                    <Border 
+            x:Name="DropDownBorder"
+            Background="{StaticResource WindowBackgroundBrush}"
+            BorderThickness="1"/>
+                                    <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True">
+                                        <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
+                                    </ScrollViewer>
+                                </Grid>
+                            </Popup>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Grid>
-        
-            <!--<MediaElement  Name="myMediaElement" >
-                <MediaElement.Triggers>
-                    <EventTrigger RoutedEvent="MediaElement.Loaded">
-                        <EventTrigger.Actions>
-                            <BeginStoryboard>
-                                <Storyboard>
-
-                                    --><!-- The MediaTimeline has a RepeatBehavior="Forever" which makes the media play
-                     over and over indefinitely.--><!--
-                                    <MediaTimeline Source="music\stalker_shadow_of_chernobyl_ost_-_main_menu_theme_68871893.wav" Storyboard.TargetName="myMediaElement"  
-                 RepeatBehavior="Forever" />
-
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger.Actions>
-                    </EventTrigger>
-                </MediaElement.Triggers>
-            </MediaElement>-->
-                
-        <!--<MediaElement Source="\music\plamenev - русский не побеждён.mp3"></MediaElement>-->
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="100"/>
@@ -42,10 +120,8 @@
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
                 <StackPanel>
-                    <ComboBox Name="cb_Users" Width="200" Height="30" Background="Red" Text="Users">
-                        <!--<Label HorizontalAlignment="Center" Visibility="Hidden">Пользователи</Label>-->
-                        <TextBlock IsEnabled="False" Visibility="Hidden">Users</TextBlock>
-                        <StackPanel >
+                    <HeaderedContentControl Header="Users">
+                        <ComboBox Name="cb_Users" Width="200" Height="30" >
                             <Button Name="btPage1" Content="LvList" Click="btPage1Click"  Width="180" Margin="5">
                                 <Button.ToolTip>
                                     <ToolTip Background="Bisque" Foreground="Black">
@@ -64,15 +140,13 @@
                                     </ToolTip>
                                 </Button.ToolTip>
                             </Button>
-                        </StackPanel>
-
-                    </ComboBox>
+                        </ComboBox>
+                    </HeaderedContentControl>
                 </StackPanel>
                 <StackPanel VerticalAlignment="Bottom">
                     <MediaElement Name="mediaElement" Source="{Binding btnPlay}" MediaOpened="Elemement_MediaOpened" LoadedBehavior="Manual" UnloadedBehavior="Stop" Stretch="Fill" Height="50" Grid.Column="0" />
                     <Slider Name="timelineSlider" ValueChanged="SeekToMediaPosition"/>
-                    <!--<Label Name="lblStatus" Content="Not playing..." HorizontalContentAlignment="Center" Margin="5,421,5,35" />-->
-                <Button Name="btnPlay" Click="btnPlay_Click" Height="30" VerticalAlignment="Bottom">Play</Button>
+                    <Button Name="btnPlay" Click="btnPlay_Click" Height="30" VerticalAlignment="Bottom">Play</Button>
                 </StackPanel>
                 <Frame Grid.Column="1" Name="FrNav" NavigationUIVisibility="Hidden" />
             </Grid>

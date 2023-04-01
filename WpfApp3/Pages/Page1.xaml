@@ -10,9 +10,9 @@
        IsVisibleChanged="addVisChan"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Page1">
-    <Page.Resources>
+    <!--<Page.Resources>
         <ObjectDataProvider x:Key="usersProvider" ObjectType="{x:Type local:Page1}" MethodName="GetUsers"/>
-    </Page.Resources>
+    </Page.Resources>-->
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
@@ -33,7 +33,7 @@
                     <ComboBoxItem Content="Все"/>
                 </ComboBox>
             </UniformGrid>
-            <ListView ItemsSource="{Binding Source={StaticResource usersProvider}}"  Name="LvUsers" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="1" Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
+            <ListView   Name="LvUsers" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="1" Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
                
                 <!--ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">

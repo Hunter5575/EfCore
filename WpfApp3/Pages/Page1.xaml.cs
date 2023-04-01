@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations.Operations;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Migrations.Operations;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -24,32 +25,36 @@ namespace WpfApp3.Pages
     /// </summary>
     public partial class Page1 : Page
     {
-
-        public void UpdateData()
+        EfModel efModel = new EfModel();
+        private void UpdateData()
         {
-
+            
             if (LvUsers == null)
                 return;
-            IEnumerable<User> UserList = EfModel.Init().Users.Where(u => u.NickName.Contains(tbSearch.Text)).ToList();
-            if (cbSort.SelectedIndex == 0)
-            {
-                UserList = UserList.OrderByDescending(p => p.NickName);
-            }
-            else
-            {
-                UserList = UserList.OrderBy(p => p.NickName);
-            }
 
-            switch (cbFiltr.SelectedIndex)
-            {
-                case 0:
-                    UserList = UserList.Where(p => p.Post == "Admin");
-                    break;
-                case 1:
-                    UserList = UserList.Where(p => p.Post == "User");
-                    break;
-            }
-            LvUsers.ItemsSource = UserList;
+            
+                IEnumerable<User> UserList = EfModel.Init().Users.Where(u => u.NickName.Contains(tbSearch.Text)).ToList();
+                if (cbSort.SelectedIndex == 0)
+                {
+                    UserList = UserList.OrderByDescending(p => p.NickName);
+                }
+                else
+                {
+                    UserList = UserList.OrderBy(p => p.NickName);
+                }
+
+                switch (cbFiltr.SelectedIndex)
+                {
+                    case 0:
+                        UserList = UserList.Where(p => p.Post == "Admin");
+                        break;
+                    case 1:
+                        UserList = UserList.Where(p => p.Post == "User");
+                        break;
+                }
+                LvUsers.ItemsSource = UserList;
+            
+            
         }
 
 
@@ -64,24 +69,27 @@ namespace WpfApp3.Pages
                 btAdd.Visibility = Visibility.Visible;
 
             }
+            UpdateData();
 
         }
 
-        public class UsersRepository
-        {
-            private ObservableCollection<User> users;
-            public UsersRepository()
-            {
-                users = new ObservableCollection<User>()
-                {
-                    new User{NickName="Анатолий Рогатая крыса", Post="Admin" }
-                };
-            }
-            public ObservableCollection<User> GetUsers()
-            {
-                return users;
-            }
-        }
+        //public class UsersRepository
+        //{
+        //    Page1 page1 = new Page1();
+        //    private ObservableCollection<User> users;
+        //    public UsersRepository()
+        //    {
+        //        users = new ObservableCollection<User>()
+        //        {
+        //            new User{NickName="Анатолий Рогатая крыса", Post="Admin"}
+        //            //new User{NickName="Анатолий Рогатая крыса", Post="Admin" }
+        //        };
+        //    }
+        //    public ObservableCollection<User> GetUsers()
+        //    {
+        //        return users;
+        //    }
+        //}
 
 
         private void btUserClick(object sender, RoutedEventArgs e)
